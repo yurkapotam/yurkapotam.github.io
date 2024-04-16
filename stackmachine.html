@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Stack Machine</title>
+        <style>
+            .codeprompt
+            {
+                width: 100%;
+                height: 60%;
+            }
+
+            .run
+            {
+                width: 100%;
+                height: 10%;
+            }
+
+            .output
+            {
+                width: 100%;
+                height: 30%;
+            }
+        </style>
+    </head>
+    <body>
+        <textarea class="codeprompt" id="codeprompt">string Hello World!
+echo</textarea>
+        <button class="run" onclick="exec_click();">Execute</button>
+        <div class="output"></div>
+        <script>
+            function exec_click()
+            {
+                local commands = document.getElementById("codeprompt").value.split("\n");
+                local stack = [];
+            }
+        </script>
+    </body>
+</html>
