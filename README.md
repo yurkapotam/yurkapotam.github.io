@@ -1,1 +1,2 @@
-# yurkapotam.github.io
+# yurkapotam's stuff
+[Stack Machine](yurkapotam.github.io/stackmachine.html)
