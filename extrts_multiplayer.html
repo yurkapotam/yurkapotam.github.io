@@ -4,8 +4,14 @@
         <title>ExtRTS</title>
     </head>
     <body>
-        <textarea id="name" placeholder="Player"></textarea>
-        <textarea id="ip" placeholder="localhost"></textarea>
+        <div>
+            <label for="name">Name</label>
+            <textarea id="name" placeholder="Player"></textarea>
+        </div>
+        <div>
+            <label for="ip">IP</label>
+            <textarea id="ip" placeholder="localhost"></textarea>
+        </div>
         <a id="connector" href="extrts_multigame.html?name=Player&ip=localhost">Connect</a>
         <script>
             function refresh_href()
