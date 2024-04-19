@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>ExtRTS</title>
+    </head>
+    <body>
+        <textarea id="name" placeholder="Player"></textarea>
+        <textarea id="ip" placeholder="localhost"></textarea>
+        <a id="connector" href="extrts_multigame.html?name=Player&ip=localhost">Connect</a>
+        <script>
+            function refresh_href()
+            {
+                document.getElementById("connector").href = "extrts_multigame.html?name=" + document.getElementById("name").value + "&ip=" + document.getElementById("ip").value
+            }
+        </script>
+    </body>
+</html>
