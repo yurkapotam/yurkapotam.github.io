@@ -3,7 +3,7 @@
     <head>
         <title>Stack Machine</title>
         <style>
-            .codeprompt
+            #codeprompt
             {
                 width: 100%;
                 height: 60%;
@@ -15,7 +15,7 @@
                 height: 10%;
             }
 
-            .output
+            #output
             {
                 width: 100%;
                 height: 30%;
@@ -23,10 +23,10 @@
         </style>
     </head>
     <body>
-        <textarea class="codeprompt" id="codeprompt">string Hello World!
+        <textarea id="codeprompt">string Hello World!
 echo</textarea>
         <button class="run" onclick="exec_click();">Execute</button>
-        <div class="output"></div>
+        <div id="output"></div>
         <script>
             function exec_click()
             {
@@ -35,9 +35,14 @@ echo</textarea>
 
                 for (i = 0;i > commands.length;i++)
                 {
-                    if (commands[i].substring(0, 7) == "string ")
+                    if (commands[i].substring(0, 6) == "string ")
                     {
-                         stack.append(commands[i].substring(7, commands[i].length);
+                        stack.push(commands[i].substring(7, commands[i].length);
+                    }
+                    if (commands[i] == "echo")
+                    {
+                        document.getElementById("output").innerHTML += stack[stack.length];
+                        stack.pop();
                     }
                 }
             }
