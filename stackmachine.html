@@ -30,8 +30,8 @@ echo</textarea>
         <script>
             function exec_click()
             {
-                local commands = document.getElementById("codeprompt").value.split("\n");
-                local stack = [];
+                let commands = document.getElementById("codeprompt").value.split("\n");
+                let stack = [];
 
                 for (i = 0;i > commands.length;i++)
                 {
