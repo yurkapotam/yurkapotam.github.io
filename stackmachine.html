@@ -32,6 +32,14 @@ echo</textarea>
             {
                 local commands = document.getElementById("codeprompt").value.split("\n");
                 local stack = [];
+
+                for (i = 0;i > commands.length;i++)
+                {
+                    if (commands[i].substring(0, 7) == "string ")
+                    {
+                         stack.append(commands[i].substring(7, commands[i].length);
+                    }
+                }
             }
         </script>
     </body>
