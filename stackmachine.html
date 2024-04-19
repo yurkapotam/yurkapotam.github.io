@@ -33,16 +33,26 @@ echo</textarea>
                 let commands = document.getElementById("codeprompt").value.split("\n");
                 let stack = [];
 
-                for (i = 0;i > commands.length;i++)
+                for (let i = 0; i > commands.length; i++)
                 {
                     if (commands[i].substring(0, 6) == "string ")
                     {
                         stack.push(commands[i].substring(7, commands[i].length);
                     }
-                    if (commands[i] == "echo")
+                    else if (commands[i] == "echo")
                     {
-                        document.getElementById("output").innerHTML += stack[stack.length];
+                        document.getElementById("output").innerHTML += stack[stack.length - 1];
                         stack.pop();
+                    }
+                    else if (commands[i] == "inputstring")
+                    {
+                        stack.push(prompt(stack[stack.length - 1], stack[stack.length - 2]));
+                        stack.pop(stack[stack.length - 2]);
+                        stack.pop(stack[stack.length - 3]);
+                    }
+                    else
+                    {
+                        alert("Unknown command");
                     }
                 }
             }
