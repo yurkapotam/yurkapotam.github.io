@@ -2,11 +2,45 @@
 <html>
     <head>
         <title>ExtRTS</title>
+        <style>
+            .tile
+            {
+                height: 100px;
+                width: 100px;
+            }
+        </style>
     </head>
     <body>
-        <a>Loading...</a>
+        <a id="loading">Loading...</a>
+        <div id="world" style="display: none;"></div>
         <script>
+            // https://stackoverflow.com/questions/901115/how-can-i-get-query-string-values-in-javascript
+            function getqueryparam(name, url = window.location.href) {
+                name = name.replace(/[\[\]]/g, '\\$&');
+                var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)');
+                results = regex.exec(url);
+                if (!results) return null;
+                if (!results[2]) return '';
+                return decodeURIComponent(results[2].replace(/\+/g, ' '));
+            }
             
+            var map_request = new XMLHttpRequest();
+            map_request.responseType = "document";
+            map_request.open("GET", getqueryparam("mapurl"), false);
+            map_request.send();
+            var map_doc = map_request.response;
+
+            var cur_map = "";
+            for (let y = 0; y < map_doc.querySelectorAll("coordinates y").length; y++)
+            {
+                cur_map += "<div>";
+                for (let x = 0; x < map_doc.querySelectorAll("coordinates y x").length; x++)
+                {
+                    cur_map += "<img class=\"tile\" href=\"" + map_doc.querySelector("coordinates").children[y].children[x].getAttribute("h") + "\"></img>";
+                }
+                cur_map += "</div>";
+            }
+            document.getElementById("world").innerHTML = cur_map;
         </script>
     </body>
 </html>
