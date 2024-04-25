@@ -1,0 +1,15 @@
+<rules>
+    <buildings>
+        <building>
+            <id>phcon</id>
+            <displayname>Phoenix Construction Yard</displayname>
+            <buildsound>https://yurkapotam.github.io/extrts_assets/sounds/build.wav</buildsound>
+        </building>
+    </buildings>
+    <factions>
+        <faction>
+            <id>phoenix</id>
+            <displayname>Phoenix</displayname>
+        </faction>
+    </factions>
+</rules>
