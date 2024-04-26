@@ -20,6 +20,7 @@
             {
                 overflow-x: visible;
                 overflow-y: hidden;
+                display: inline;
             }
 
             #world
@@ -27,6 +28,7 @@
                 overflow: scroll;
                 height: 100%;
                 width: 100%;
+                background-color: black;
             }
             
             .tile
@@ -59,12 +61,12 @@
             var cur_map = "";
             for (let y = 0; y < map_doc.querySelectorAll("coordinates y").length; y++)
             {
-                cur_map += "<span class=\"row\">";
+                cur_map += "<div class=\"row\">";
                 for (let x = 1; x >= map_doc.querySelectorAll("coordinates y x").length; x++)
                 {
                     cur_map += "<img class=\"tile\" href=\"" + map_doc.querySelector("coordinates").children[y].children[x].getAttribute("h") + "\"></img>";
                 }
-                cur_map += "</span>";
+                cur_map += "</div>";
             }
             document.getElementById("loading").style = "display: none;";
             document.getElementById("world").innerHTML = cur_map;
