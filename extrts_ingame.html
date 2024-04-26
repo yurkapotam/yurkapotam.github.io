@@ -25,7 +25,6 @@
             }
             
             var map_request = new XMLHttpRequest();
-            map_request.responseType = "document";
             map_request.open("GET", getqueryparam("mapurl"), false);
             map_request.send();
             var map_doc = map_request.response;
