@@ -59,15 +59,15 @@
             var map_doc = new DOMParser().parseFromString(map_request.response, "application/xml");
 
             var cur_map = "";
-            for (let y = 0; y < map_doc.querySelectorAll("coordinates y").length; y++)
+            map_doc.querySelectorAll("coordinates y").forEach(y =>
             {
                 cur_map += "<div class=\"row\">";
-                for (let x = 0; x < map_doc.querySelectorAll("coordinates y x").length; x++)
+                map_doc.querySelectorAll("coordinates y x").forEach(x =>
                 {
-                    cur_map += "<img class=\"tile\" href=\"" + map_doc.querySelector("coordinates").children[y].children[x].getAttribute("h") + "\"></img>";
-                }
+                    cur_map += "<img class=\"tile\" href=\"" + x.getAttribute("h") + "\"></img>";
+                });
                 cur_map += "</div>";
-            }
+            });
             document.getElementById("loading").style = "display: none;";
             document.getElementById("world").innerHTML = cur_map;
             document.getElementById("world").style = "display: block;";
