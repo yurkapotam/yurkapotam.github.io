@@ -67,7 +67,7 @@
                 cur_map += "<div class=\"row\">";
                 map_doc.querySelectorAll("coordinates y x").forEach(x =>
                 {
-                    cur_map += "<img class=\"tile\" href=\"" + x.getAttribute("h") + "\"></img>";
+                    cur_map += "<img class=\"tile\" style=\"--tile-image=\\\"" + x.getAttribute("h") + "\\\";\"></img>";
                 });
                 cur_map += "</div>";
             });
