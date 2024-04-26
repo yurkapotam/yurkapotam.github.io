@@ -28,6 +28,7 @@
             map_request.open("GET", getqueryparam("mapurl"), false);
             map_request.send();
             var map_doc = map_request.response;
+            console.log(typeof(map_doc));
 
             var cur_map = "";
             for (let y = 0; y < map_doc.querySelectorAll("coordinates y").length; y++)
