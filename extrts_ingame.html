@@ -51,6 +51,11 @@
             map_request.open("GET", getqueryparam("mapurl"), false);
             map_request.send();
             var map_doc = new DOMParser().parseFromString(map_request.response, "application/xml");
+            
+            var game_request = new XMLHttpRequest();
+            game_request.open("GET", getqueryparam("gameurl"), false);
+            game_request.send();
+            var game_doc = new DOMParser().parseFromString(game_request.response, "application/xml");
 
             var cur_map = "";
             map_doc.querySelectorAll("coordinates y").forEach(y =>
