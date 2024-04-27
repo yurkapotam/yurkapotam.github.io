@@ -6,10 +6,18 @@
             <buildsound>https://yurkapotam.github.io/extrts_assets/sounds/build.wav</buildsound>
         </building>
     </buildings>
+    <vehicles>
+        <vehicle>
+            <id>phmcv</id>
+            <displayname>Phoenix Construction Vehicle</displayname>
+        </vehicle>
+    </vehicles>
     <factions>
         <faction>
             <id>phoenix</id>
             <displayname>Phoenix</displayname>
+            <construction_vehicle>phmcv</construction_vehicle>
+            <sidebar_flag>https://yurkapotam.github.io/extrts_assets/images/phoenix_sidebar.png</sidebar_flag>
         </faction>
     </factions>
 </rules>
