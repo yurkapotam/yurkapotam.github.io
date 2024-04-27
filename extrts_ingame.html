@@ -38,6 +38,16 @@
                 width: 30%;
                 flex: 1;
             }
+
+            .sidebyside
+            {
+                display: flex;
+            }
+
+            .sidebyside *
+            {
+                flex: 1;
+            }
             
             .tile
             {
@@ -51,9 +61,15 @@
         <a id="loading">Loading...</a>
         <div id="world" style="display: none;"></div>
         <div id="sidebar">
-            
+            <div class="sidebyside">
+                <button onclick="repair();">Repair</button>
+                <button onclick="sell();">Sell</button>
+            </div>
         </div>
         <script>
+            var repairing = false;
+            var selling = false;
+            
             // https://stackoverflow.com/questions/901115/how-can-i-get-query-string-values-in-javascript
             function getqueryparam(name, url = window.location.href)
             {
@@ -63,6 +79,19 @@
                 if (!results) return null;
                 if (!results[2]) return '';
                 return decodeURIComponent(results[2].replace(/\+/g, ' '));
+            }
+
+            function repair()
+            {
+                repairing = !repairing;
+                if (repairing)
+                {
+                    document.getElementById("world").style.cursor = "url(sell.cur)";
+            }
+
+            function sell()
+            {
+                selling = !selling;
             }
 
             function tileclick(x, y)
