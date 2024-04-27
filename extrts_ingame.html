@@ -18,9 +18,7 @@
             
             .row
             {
-                overflow: initial;
-                overflow-x: visible;
-                overflow-y: hidden;
+                overflow: hidden;
                 white-space: nowrap;
             }
 
@@ -65,7 +63,7 @@
                 cur_map += "<div class=\"row\">";
                 map_doc.querySelectorAll("coordinates y x").forEach(x =>
                 {
-                    cur_map += "<div class=\"tile\"><img src=\"" + x.getAttribute("h") + "\"></img></div>";
+                    cur_map += "<img class=\"tile\" src=\"" + x.getAttribute("h") + "\"></img>";
                 });
                 cur_map += "</div>";
             });
