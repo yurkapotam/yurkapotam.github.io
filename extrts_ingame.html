@@ -20,9 +20,22 @@
             {
                 overflow: scroll;
                 height: 100%;
-                width: 100%;
+                width: 70%;
                 background-color: black;
                 white-space: nowrap;
+                display: inline-block;
+            }
+
+            .row
+            {
+                display: block;
+            }
+
+            #sidebar
+            {
+                height: 100%;
+                width: 30%;
+                display: inline-block;
             }
             
             .tile
@@ -36,15 +49,24 @@
     <body>
         <a id="loading">Loading...</a>
         <div id="world" style="display: none;"></div>
+        <div id="sidebar">
+            
+        </div>
         <script>
             // https://stackoverflow.com/questions/901115/how-can-i-get-query-string-values-in-javascript
-            function getqueryparam(name, url = window.location.href) {
+            function getqueryparam(name, url = window.location.href)
+            {
                 name = name.replace(/[\[\]]/g, '\\$&');
                 var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)');
                 results = regex.exec(url);
                 if (!results) return null;
                 if (!results[2]) return '';
                 return decodeURIComponent(results[2].replace(/\+/g, ' '));
+            }
+
+            function tileclick(x, y)
+            {
+                console.log("thanks for pressing " + x + " " + y + "!");
             }
             
             var map_request = new XMLHttpRequest();
@@ -58,12 +80,12 @@
             var game_doc = new DOMParser().parseFromString(game_request.response, "application/xml");
 
             var cur_map = "";
-            map_doc.querySelectorAll("coordinates y").forEach(y =>
+            map_doc.querySelectorAll("coordinates y").forEach(function(y, yi)
             {
                 cur_map += "<div class=\"row\">";
                 for (let x = 0; x < y.children.length; x++)
                 {
-                    cur_map += "<img class=\"tile\" src=\"" + y.children[x].getAttribute("h") + "\"/>";
+                    cur_map += "<img class=\"tile\" src=\"" + y.children[x].getAttribute("h") + "\" onclick=\"tileclick(" + x + ", " + yi + ");\">";
                 }
                 cur_map += "</div>";
             });
