@@ -56,7 +56,7 @@
             map_doc.querySelectorAll("coordinates y").forEach(y =>
             {
                 cur_map += "<div class=\"row\">";
-                map_doc.querySelectorAll("coordinates y x").forEach(x =>
+                x.children.forEach(x =>
                 {
                     cur_map += "<img class=\"tile\" src=\"" + x.getAttribute("h") + "\"></img>";
                 });
