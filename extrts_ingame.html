@@ -60,7 +60,7 @@
     <body>
         <a id="loading">Loading...</a>
         <div id="world" style="display: none;"></div>
-        <div id="sidebar">
+        <div id="sidebar" style="display: none;">
             <div class="sidebyside">
                 <button onclick="repair();">Repair</button>
                 <button onclick="sell();">Sell</button>
@@ -69,6 +69,9 @@
         <script>
             var repairing = false;
             var selling = false;
+
+            var buildings = [];
+            var units = [];
             
             // https://stackoverflow.com/questions/901115/how-can-i-get-query-string-values-in-javascript
             function getqueryparam(name, url = window.location.href)
@@ -86,12 +89,25 @@
                 repairing = !repairing;
                 if (repairing)
                 {
-                    document.getElementById("world").style.cursor = "url(sell.cur)";
+                    document.getElementById("world").style.cursor = "url(repairfail.cur)";
+                }
+                else
+                {
+                    document.getElementById("world").style.cursor = "unset";
+                }
             }
 
             function sell()
             {
                 selling = !selling;
+                if (selling)
+                {
+                    document.getElementById("world").style.cursor = "url(sellfail.cur)";
+                }
+                else
+                {
+                    document.getElementById("world").style.cursor = "unset";
+                }
             }
 
             function tileclick(x, y)
@@ -122,6 +138,7 @@
             document.getElementById("loading").style = "display: none;";
             document.getElementById("world").innerHTML = cur_map;
             document.getElementById("world").style = "display: block;";
+            document.getElementById("sidebar").style = "display: block;";
         </script>
     </body>
 </html>
