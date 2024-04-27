@@ -56,9 +56,9 @@
             map_doc.querySelectorAll("coordinates y").forEach(y =>
             {
                 cur_map += "<div class=\"row\">";
-                y.children.forEach(x =>
+                for (let x = 0; x < y.children.length; x++)
                 {
-                    cur_map += "<img class=\"tile\" src=\"" + x.getAttribute("h") + "\"/>";
+                    cur_map += "<img class=\"tile\" src=\"" + y.children[x].getAttribute("h") + "\"/>";
                 });
                 cur_map += "</div>";
             });
