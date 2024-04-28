@@ -136,6 +136,13 @@
             {
                 console.log("thanks for pressing " + x + " " + y + "!");
             }
+
+            var speed = Number(getqueryparam("speed"));
+
+            function tick()
+            {
+                setTimeout(tick, speed);
+            }
             
             var map_request = new XMLHttpRequest();
             map_request.open("GET", getqueryparam("mapurl"), false);
@@ -162,6 +169,7 @@
             document.getElementById("world").innerHTML = cur_map;
             document.getElementById("world").style = "display: block;";
             document.getElementById("sidebar").style = "display: block;";
+            tick();
         </script>
     </body>
 </html>
