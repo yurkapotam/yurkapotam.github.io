@@ -16,8 +16,8 @@
         <faction>
             <id>phoenix</id>
             <displayname>Phoenix</displayname>
-            <construction_vehicle>phmcv</construction_vehicle>
-            <sidebar_flag>https://yurkapotam.github.io/extrts_assets/images/phoenix_sidebar.png</sidebar_flag>
+            <constructionvehicle>phmcv</construction_vehicle>
+            <sidebarflag>https://yurkapotam.github.io/extrts_assets/images/phoenix_sidebar.png</sidebar_flag>
         </faction>
     </factions>
 </rules>
