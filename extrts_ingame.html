@@ -24,7 +24,7 @@
                 width: 70%;
                 background-color: black;
                 white-space: nowrap;
-                flex: 5;
+                flex: 4;
             }
 
             .row
@@ -73,10 +73,10 @@
                 <button id="sell" onclick="sell();">Sell</button>
             </div>
             <div class="sidebyside">
-                <button onclick="buildcat();">Bld</button>
-                <button onclick="defensecat();">Def</button>
-                <button onclick="infantrycat();">Inf</button>
-                <button onclick="vehiclecat();">Veh</button>
+                <button onclick="buildcat();">Buildings</button>
+                <button onclick="defensecat();">Defense</button>
+                <button onclick="infantrycat();">Infantry</button>
+                <button onclick="vehiclecat();">Vehicles</button>
             </div>
         </div>
         <script>
@@ -157,7 +157,7 @@
                 }
                 cur_map += "</div>";
             });
-            document.getElementById("sidebar-flag").src = 
+            document.getElementById("sidebar-flag").src = game_doc.querySelector("faction[id=" + getqueryparam("faction") + "] sidebarflag").innerHTML;
             document.getElementById("loading").style = "display: none;";
             document.getElementById("world").innerHTML = cur_map;
             document.getElementById("world").style = "display: block;";
