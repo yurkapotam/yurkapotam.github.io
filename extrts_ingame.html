@@ -55,15 +55,28 @@
                 width: 100px;
                 display: inline-block;
             }
+
+            .cash
+            {
+                text-align: center;
+            }
         </style>
     </head>
     <body>
         <a id="loading">Loading...</a>
         <div id="world" style="display: none;"></div>
         <div id="sidebar" style="display: none;">
+            <div class="cash">0</div>
+            <img id="sidebar-flag">
             <div class="sidebyside">
-                <button onclick="repair();">Repair</button>
-                <button onclick="sell();">Sell</button>
+                <button id="repair" onclick="repair();">Repair</button>
+                <button id="sell" onclick="sell();">Sell</button>
+            </div>
+            <div class="sidebyside">
+                <button onclick="buildcat();">Bld</button>
+                <button onclick="defensecat();">Def</button>
+                <button onclick="infantrycat();">Inf</button>
+                <button onclick="vehiclecat();">Veh</button>
             </div>
         </div>
         <script>
@@ -72,6 +85,7 @@
 
             var buildings = [];
             var units = [];
+            var players = [];
             
             // https://stackoverflow.com/questions/901115/how-can-i-get-query-string-values-in-javascript
             function getqueryparam(name, url = window.location.href)
@@ -89,10 +103,14 @@
                 repairing = !repairing;
                 if (repairing)
                 {
+                    selling = false;
+                    document.getElementById("sell").innerHTML = "Sell";
+                    document.getElementById("repair").innerHTML = "(Repair)";
                     document.getElementById("world").style.cursor = "url(repairfail.cur)";
                 }
                 else
                 {
+                    document.getElementById("repair").innerHTML = "Repair";
                     document.getElementById("world").style.cursor = "unset";
                 }
             }
@@ -102,10 +120,14 @@
                 selling = !selling;
                 if (selling)
                 {
+                    repairing = false;
+                    document.getElementById("repair").innerHTML = "Repair";
+                    document.getElementById("sell").innerHTML = "(Sell)";
                     document.getElementById("world").style.cursor = "url(sellfail.cur)";
                 }
                 else
                 {
+                    document.getElementById("sell").innerHTML = "Sell";
                     document.getElementById("world").style.cursor = "unset";
                 }
             }
@@ -135,6 +157,7 @@
                 }
                 cur_map += "</div>";
             });
+            document.getElementById("sidebar-flag").src = 
             document.getElementById("loading").style = "display: none;";
             document.getElementById("world").innerHTML = cur_map;
             document.getElementById("world").style = "display: block;";
