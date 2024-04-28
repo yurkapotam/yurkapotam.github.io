@@ -14,11 +14,15 @@
             <label for="gameurl">Gamepack URL</label>
             <textarea id="gameurl" onchange="refresh_href();">https://yurkapotam.github.io/extrts_gamepack.xml</textarea>
         </div>
-        <a id="connector" href="extrts_ingame.html?mapurl=extrts_bigflat.xml&gameurl=extrts_gamepack.xml">Connect</a>
+        <div>
+            <label for="speed">Game speed</label>
+            <textarea id="speed" onchange="refresh_href();">50</textarea>
+        </div>
+        <a id="connector" href="extrts_ingame.html?mapurl=extrts_bigflat.xml&gameurl=extrts_gamepack.xml&speed=50">Connect</a>
         <script>
             function refresh_href()
             {
-                document.getElementById("connector").href = "extrts_ingame.html?mapurl=" + document.getElementById("mapurl").value + "&gameurl=" + document.getElementById("gameurl").value
+                document.getElementById("connector").href = "extrts_ingame.html?mapurl=" + document.getElementById("mapurl").value + "&gameurl=" + document.getElementById("gameurl").value + "&speed=" + document.getElementById("speed").value;
             }
         </script>
     </body>
