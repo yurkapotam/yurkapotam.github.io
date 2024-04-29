@@ -188,7 +188,7 @@
                 }
                 cur_map += "</div>";
             });
-            document.getElementById("sidebar-flag").src = game_doc.querySelector("faction[id=" + faction + "] sidebarflag").innerHTML;
+            document.getElementById("sidebar-flag").src = rule_doc.querySelector("faction[id=" + faction + "] sidebarflag").innerHTML;
             document.getElementById("loading").style = "display: none;";
             document.getElementById("world").innerHTML = cur_map;
             document.getElementById("world").style = "display: block;";
