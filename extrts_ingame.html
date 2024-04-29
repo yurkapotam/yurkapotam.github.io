@@ -53,6 +53,7 @@
             {
                 height: 100px;
                 width: 100px;
+                object-fit: fill;
                 display: inline-block;
             }
 
@@ -65,7 +66,14 @@
             {
                 object-fit: fill;
                 width: 100%;
-                height: 25%;
+                height: 35%;
+            }
+
+            .unit
+            {
+                position: relative;
+                height: 100px;
+                width: 100px;
             }
         </style>
     </head>
@@ -110,6 +118,12 @@
                     <button onclick="buildrequest(14);">???</button>
                     <button onclick="buildrequest(15);">???</button>
                 </div>
+                <div class="sidebyside">
+                    <button onclick="buildrequest(16);">???</button>
+                    <button onclick="buildrequest(17);">???</button>
+                    <button onclick="buildrequest(18);">???</button>
+                    <button onclick="buildrequest(19);">???</button>
+                </div>
             </div>
             <div id="defbuildings" style="display: none;">
                 <div class="sidebyside">
@@ -135,6 +149,12 @@
                     <button onclick="defrequest(13);">???</button>
                     <button onclick="defrequest(14);">???</button>
                     <button onclick="defrequest(15);">???</button>
+                </div>
+                <div class="sidebyside">
+                    <button onclick="defrequest(16);">???</button>
+                    <button onclick="defrequest(17);">???</button>
+                    <button onclick="defrequest(18);">???</button>
+                    <button onclick="defrequest(19);">???</button>
                 </div>
             </div>
             <div id="infantry" style="display: none;">
@@ -162,6 +182,12 @@
                     <button onclick="infrequest(14);">???</button>
                     <button onclick="infrequest(15);">???</button>
                 </div>
+                <div class="sidebyside">
+                    <button onclick="infrequest(16);">???</button>
+                    <button onclick="infrequest(17);">???</button>
+                    <button onclick="infrequest(18);">???</button>
+                    <button onclick="infrequest(19);">???</button>
+                </div>
             </div>
             <div id="vehicles" style="display: none;">
                 <div class="sidebyside">
@@ -188,6 +214,12 @@
                     <button onclick="vehrequest(14);">???</button>
                     <button onclick="vehrequest(15);">???</button>
                 </div>
+                <div class="sidebyside">
+                    <button onclick="vehrequest(16);">???</button>
+                    <button onclick="vehrequest(17);">???</button>
+                    <button onclick="vehrequest(18);">???</button>
+                    <button onclick="vehrequest(19);">???</button>
+                </div>
             </div>
         </div>
         <script>
@@ -197,7 +229,33 @@
             var buildings = [];
             var units = [];
             var players = [];
-            var category = "buildings"
+            var category = "buildings";
+
+            class Unit
+            {
+                tick()
+                {
+                    if (targetx && targety)
+                    {
+
+                    }
+                }
+                
+                constructor(player, id, x, y, target, targetx, targety, rotation)
+                {
+                    this.player = player;
+                    this.id = id;
+                    this.x = x;
+                    this.y = y;
+                    this.target = target;
+                    this.targetx = targetx;
+                    this.targety = targety;
+                    this.rotation = rotation % 360;
+                    this.element = document.createElement("img");
+                    this.element.className = "unit";
+                    this.element.style = "top:" + (y * 100) + "px;left:" + (x * 100) + "px;";
+                }
+            }
 
             function buildcat()
             {
@@ -305,6 +363,7 @@
 
             function tick()
             {
+                units.forEach(unit => unit.tick());
                 setTimeout(tick, speed);
             }
             
@@ -360,6 +419,7 @@
             document.getElementById("world").innerHTML = cur_map;
             document.getElementById("world").style = "display: block;";
             document.getElementById("sidebar").style = "display: block;";
+            players.forEach(bot => {units.push(new Unit(bot, rule_doc.querySelector("rules factions faction[id=" + bot.factionid + "] constructionvehicle").innerHTML))});
             tick();
         </script>
     </body>
