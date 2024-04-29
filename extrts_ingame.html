@@ -171,7 +171,7 @@
                 var xmlStringRequest = new XMLHttpRequest();
                 xmlStringRequest.open("GET", xmlStringUrl, false);
                 xmlStringRequest.send();
-                const source = new DOMParser().parseFromString(xmlStringRequest.response, 'text/xml');
+                const source = new DOMParser().parseFromString(xmlStringRequest.response, 'application/xml');
                 const factions = source.querySelectorAll('rules factions faction');
                 if (factions.length > 0)
                 {
