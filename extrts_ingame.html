@@ -175,7 +175,7 @@
                 const factions = source.querySelectorAll('rules factions faction');
                 if (factions.length > 0)
                 {
-                    rule_doc.querySelector("rules factions").append(...factions);
+                    factions.forEach(faction => {rule_doc.querySelector("rules factions").append(faction)});
                 }
             }
 
