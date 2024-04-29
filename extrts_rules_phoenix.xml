@@ -11,7 +11,7 @@
         </vehicle>
     </vehicles>
     <factions>
-        <faction id="phoenix">
+        <faction id="phoenix" default="yes">
             <displayname>Phoenix</displayname>
             <constructionvehicle>phmcv</construction_vehicle>
             <sidebarflag>https://yurkapotam.github.io/extrts_assets/images/phoenix_sidebar.png</sidebar_flag>
