@@ -176,7 +176,7 @@
                 }
             }
 
-            var faction = rule_doc.querySelector("faction[id=" + getqueryparam("faction") + "]").getAttribute("id") ?? rule_doc.querySelector("faction[default=yes]").getAttribute("id");
+            var faction = rule_doc.querySelector("faction[default=yes]").getAttribute("id");
 
             var cur_map = "";
             map_doc.querySelectorAll("coordinates y").forEach(function(y, yi)
