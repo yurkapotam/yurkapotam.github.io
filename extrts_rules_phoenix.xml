@@ -1,0 +1,20 @@
+<rules>
+    <buildings>
+        <building id="phcon">
+            <displayname>Phoenix Construction Yard</displayname>
+            <buildsound>https://yurkapotam.github.io/extrts_assets/sounds/build.wav</buildsound>
+        </building>
+    </buildings>
+    <vehicles>
+        <vehicle id="phmcv">
+            <displayname>Phoenix Construction Vehicle</displayname>
+        </vehicle>
+    </vehicles>
+    <factions>
+        <faction id="phoenix">
+            <displayname>Phoenix</displayname>
+            <constructionvehicle>phmcv</construction_vehicle>
+            <sidebarflag>https://yurkapotam.github.io/extrts_assets/images/phoenix_sidebar.png</sidebar_flag>
+        </faction>
+    </factions>
+</rules>
