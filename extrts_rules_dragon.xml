@@ -4,7 +4,7 @@
         <faction id="dragon" default="no">
             <constructionvehicle>drmcv</constructionvehicle>
             <displayname>Dragon</displayname>
-            <sidebarflag>https://yurkapotam.github.io/extrts_assets/images/sidebar_dragon.png</sidebarflag>
+            <sidebarflag>https://yurkapotam.github.io/extrts_assets/images/dragon_sidebar.png</sidebarflag>
         </faction>
     </factions>
 </rules>
