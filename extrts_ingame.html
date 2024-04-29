@@ -73,10 +73,10 @@
                 <button id="sell" onclick="sell();">Sell</button>
             </div>
             <div class="sidebyside">
-                <button onclick="buildcat();">Buildings</button>
-                <button onclick="defensecat();">Defense</button>
-                <button onclick="infantrycat();">Infantry</button>
-                <button onclick="vehiclecat();">Vehicles</button>
+                <button id="buildingsbutton" onclick="buildcat();">(Buildings)</button>
+                <button id="defbuildingsbutton" onclick="defensecat();">Defense</button>
+                <button id="infantrybutton" onclick="infantrycat();">Infantry</button>
+                <button id="vehiclesbutton" onclick="vehiclecat();">Vehicles</button>
             </div>
             <div id="buildings">
                 <div class="sidebyside">
@@ -97,6 +97,90 @@
                     <button onclick="buildrequest(10);">???</button>
                     <button onclick="buildrequest(11);">???</button>
                 </div>
+                <div class="sidebyside">
+                    <button onclick="buildrequest(12);">???</button>
+                    <button onclick="buildrequest(13);">???</button>
+                    <button onclick="buildrequest(14);">???</button>
+                    <button onclick="buildrequest(15);">???</button>
+                </div>
+            </div>
+            <div id="defbuildings" style="display: none;">
+                <div class="sidebyside">
+                    <button onclick="defrequest(0);">???</button>
+                    <button onclick="defrequest(1);">???</button>
+                    <button onclick="defrequest(2);">???</button>
+                    <button onclick="defrequest(3);">???</button>
+                </div>
+                <div class="sidebyside">
+                    <button onclick="defrequest(4);">???</button>
+                    <button onclick="defrequest(5);">???</button>
+                    <button onclick="defrequest(6);">???</button>
+                    <button onclick="defrequest(7);">???</button>
+                </div>
+                <div class="sidebyside">
+                    <button onclick="defrequest(8);">???</button>
+                    <button onclick="defrequest(9);">???</button>
+                    <button onclick="defrequest(10);">???</button>
+                    <button onclick="defrequest(11);">???</button>
+                </div>
+                <div class="sidebyside">
+                    <button onclick="defrequest(12);">???</button>
+                    <button onclick="defrequest(13);">???</button>
+                    <button onclick="defrequest(14);">???</button>
+                    <button onclick="defrequest(15);">???</button>
+                </div>
+            </div>
+            <div id="infantry" style="display: none;">
+                <div class="sidebyside">
+                    <button onclick="infrequest(0);">???</button>
+                    <button onclick="infrequest(1);">???</button>
+                    <button onclick="infrequest(2);">???</button>
+                    <button onclick="infrequest(3);">???</button>
+                </div>
+                <div class="sidebyside">
+                    <button onclick="infrequest(4);">???</button>
+                    <button onclick="infrequest(5);">???</button>
+                    <button onclick="infrequest(6);">???</button>
+                    <button onclick="infrequest(7);">???</button>
+                </div>
+                <div class="sidebyside">
+                    <button onclick="infrequest(8);">???</button>
+                    <button onclick="infrequest(9);">???</button>
+                    <button onclick="infrequest(10);">???</button>
+                    <button onclick="infrequest(11);">???</button>
+                </div>
+                <div class="sidebyside">
+                    <button onclick="infrequest(12);">???</button>
+                    <button onclick="infrequest(13);">???</button>
+                    <button onclick="infrequest(14);">???</button>
+                    <button onclick="infrequest(15);">???</button>
+                </div>
+            </div>
+            <div id="vehicles" style="display: none;">
+                <div class="sidebyside">
+                    <button onclick="vehrequest(0);">???</button>
+                    <button onclick="vehrequest(1);">???</button>
+                    <button onclick="vehrequest(2);">???</button>
+                    <button onclick="vehrequest(3);">???</button>
+                </div>
+                <div class="sidebyside">
+                    <button onclick="vehrequest(4);">???</button>
+                    <button onclick="vehrequest(5);">???</button>
+                    <button onclick="vehrequest(6);">???</button>
+                    <button onclick="vehrequest(7);">???</button>
+                </div>
+                <div class="sidebyside">
+                    <button onclick="vehrequest(8);">???</button>
+                    <button onclick="vehrequest(9);">???</button>
+                    <button onclick="vehrequest(10);">???</button>
+                    <button onclick="vehrequest(11);">???</button>
+                </div>
+                <div class="sidebyside">
+                    <button onclick="vehrequest(12);">???</button>
+                    <button onclick="vehrequest(13);">???</button>
+                    <button onclick="vehrequest(14);">???</button>
+                    <button onclick="vehrequest(15);">???</button>
+                </div>
             </div>
         </div>
         <script>
@@ -106,6 +190,59 @@
             var buildings = [];
             var units = [];
             var players = [];
+            var category = "buildings"
+
+            function buildcat()
+            {
+                category = "buildings";
+                document.getElementById("infantry").style.display = "none";
+                document.getElementById("vehicles").style.display = "none";
+                document.getElementById("buildings").style.display = "block";
+                document.getElementById("defbuildings").style.display = "none";
+                document.getElementById("buildingsbutton").innerHTML = "(Buildings)";
+                document.getElementById("defbuildingsbutton").innerHTML = "Defense";
+                document.getElementById("infantrybutton").innerHTML = "Infantry";
+                document.getElementById("vehiclesbutton").innerHTML = "Vehicles";
+            }
+
+            function defensecat()
+            {
+                category = "defbuildings";
+                document.getElementById("infantry").style.display = "none";
+                document.getElementById("vehicles").style.display = "none";
+                document.getElementById("buildings").style.display = "none";
+                document.getElementById("defbuildings").style.display = "block";
+                document.getElementById("buildingsbutton").innerHTML = "Buildings";
+                document.getElementById("defbuildingsbutton").innerHTML = "(Defense)";
+                document.getElementById("infantrybutton").innerHTML = "Infantry";
+                document.getElementById("vehiclesbutton").innerHTML = "Vehicles";
+            }
+
+            function infantrycat()
+            {
+                category = "infantry";
+                document.getElementById("infantry").style.display = "block";
+                document.getElementById("vehicles").style.display = "none";
+                document.getElementById("buildings").style.display = "none";
+                document.getElementById("defbuildings").style.display = "none";
+                document.getElementById("buildingsbutton").innerHTML = "Buildings";
+                document.getElementById("defbuildingsbutton").innerHTML = "Defense";
+                document.getElementById("infantrybutton").innerHTML = "(Infantry)";
+                document.getElementById("vehiclesbutton").innerHTML = "Vehicles";
+            }
+
+            function vehiclecat()
+            {
+                category = "vehicles";
+                document.getElementById("infantry").style.display = "none";
+                document.getElementById("vehicles").style.display = "block";
+                document.getElementById("buildings").style.display = "none";
+                document.getElementById("defbuildings").style.display = "none";
+                document.getElementById("buildingsbutton").innerHTML = "Buildings";
+                document.getElementById("defbuildingsbutton").innerHTML = "Defense";
+                document.getElementById("infantrybutton").innerHTML = "Infantry";
+                document.getElementById("vehiclesbutton").innerHTML = "(Vehicles)";
+            }
             
             // https://stackoverflow.com/questions/901115/how-can-i-get-query-string-values-in-javascript
             function getqueryparam(name, url = window.location.href)
