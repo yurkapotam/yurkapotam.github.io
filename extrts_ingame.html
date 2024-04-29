@@ -154,7 +154,21 @@
             game_request.send();
             var game_doc = new DOMParser().parseFromString(game_request.response, "application/xml");
 
-            var faction = game_doc.querySelector("faction[id=" + getqueryparam("faction") + "]").getAttribute("id") ?? game_doc.querySelector("faction[default=yes]").getAttribute("id");
+            var rule_doc = document.implementation.createDocument(null, "rules");
+            for (const xmlStringUrl of Array.from(game_doc.querySelectorAll("rule")))
+            {
+                var xmlStringRequest = new XMLHttpRequest();
+                xmlStringRequest.open("GET", xmlStringUrl, false);
+                xmlStringRequest.send();
+                const source = new DOMParser().parseFromString(xmlStringRequest.response, 'text/xml');
+                const members = source.querySelectorAll('rules factions faction');
+                if (members.length > 0)
+                {
+                    rule_doc.documentElement.append(...members);
+                }
+            }
+
+            var faction = rule_doc.querySelector("faction[id=" + getqueryparam("faction") + "]").getAttribute("id") ?? rule_doc.querySelector("faction[default=yes]").getAttribute("id");
 
             var cur_map = "";
             map_doc.querySelectorAll("coordinates y").forEach(function(y, yi)
