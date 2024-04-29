@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rules>
+    <factions>
+        <faction id="dragon" default="no">
+            <constructionvehicle>drmcv</constructionvehicle>
+            <displayname>Dragon</displayname>
+            <sidebarflag>https://yurkapotam.github.io/extrts_assets/images/sidebar_dragon.png</sidebarflag>
+        </faction>
+    </factions>
+</rules>
