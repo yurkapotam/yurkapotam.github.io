@@ -155,7 +155,15 @@
             var game_doc = new DOMParser().parseFromString(game_request.response, "application/xml");
 
             var rule_doc = document.implementation.createDocument(null, "rules");
-            for (const xmlStringUrl of Array.from(game_doc.querySelectorAll("rule").innerHTML))
+            function sources()
+            {
+                let ar = [];
+                game_doc.querySelectorAll("rule").forEach(r => {
+                    ar.push(r.innerHTML);
+                });
+                return ar;
+            }
+            for (const xmlStringUrl of sources())
             {
                 var xmlStringRequest = new XMLHttpRequest();
                 xmlStringRequest.open("GET", xmlStringUrl, false);
