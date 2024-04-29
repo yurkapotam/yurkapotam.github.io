@@ -154,7 +154,10 @@
             game_request.send();
             var game_doc = new DOMParser().parseFromString(game_request.response, "application/xml");
 
-            var rule_doc = document.implementation.createDocument(null, "rules");
+            var rule_doc = new DOMParser().parseFromString(`<?xml version="1.0" encoding="UTF-8"?>
+                                                            <rules>
+                                                                <factions></factions>
+                                                            </rules>`, "application/xml");
             function sources()
             {
                 let ar = [];
@@ -169,10 +172,10 @@
                 xmlStringRequest.open("GET", xmlStringUrl, false);
                 xmlStringRequest.send();
                 const source = new DOMParser().parseFromString(xmlStringRequest.response, 'text/xml');
-                const members = source.querySelectorAll('rules factions faction');
-                if (members.length > 0)
+                const factions = source.querySelectorAll('rules factions faction');
+                if (factions.length > 0)
                 {
-                    rule_doc.documentElement.append(...members);
+                    rule_doc.querySelector("rules factions").append(...members);
                 }
             }
 
