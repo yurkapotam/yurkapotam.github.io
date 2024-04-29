@@ -175,7 +175,7 @@
                 const factions = source.querySelectorAll('rules factions faction');
                 if (factions.length > 0)
                 {
-                    factions.forEach(faction => {rule_doc.querySelector("rules factions").append(faction)});
+                    factions.forEach(faction => {rule_doc.querySelector("rules factions").innerHTML += "<faction id=\"" + faction.getAttribute("id") + "\" default=\"" + faction.getAttribute("default") + "\">" + faction.innerHTML + "</faction>"});
                 }
             }
 
