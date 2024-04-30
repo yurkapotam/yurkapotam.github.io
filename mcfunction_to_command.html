@@ -11,7 +11,7 @@
             function handleFiles()
             {
                 this.files[0].text().then(content => {
-                    let lines = content.split("\n");
+                    let lines = content.split("\r\n");
                     let obj = {Passengers: []};
                     lines.forEach(line => {
                         obj.Passengers.push({id: "minecraft:command_block_minecart", Command: line});
