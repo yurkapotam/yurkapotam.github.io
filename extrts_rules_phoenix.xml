@@ -1,15 +1,16 @@
 <rules>
     <buildings>
-        <building id="phcon">
+        <building id="phcon" defense="no">
             <displayname>Phoenix Construction Yard</displayname>
             <buildsound>https://yurkapotam.github.io/extrts_assets/sounds/build.wav</buildsound>
         </building>
     </buildings>
-    <vehicles>
-        <vehicle id="phmcv">
+    <units>
+        <unit id="phmcv" vehicle="yes">
             <displayname>Phoenix Construction Vehicle</displayname>
-        </vehicle>
-    </vehicles>
+            <turnrate>10</turnrate>
+        </unit>
+    </units>
     <factions>
         <faction id="phoenix" default="yes">
             <displayname>Phoenix</displayname>
