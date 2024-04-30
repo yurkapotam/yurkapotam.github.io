@@ -10,14 +10,14 @@
             inputElement.addEventListener("change", handleFiles, false);
             function handleFiles()
             {
-                this.files.forEach(file => file.text().then(content => {
+                this.files[0].text().then(content => {
                     let lines = content.split("\n");
                     let obj = {Passengers: []};
                     lines.forEach(line => {
                         obj.Passengers.push({id: "minecraft:command_block_minecart", Command: line});
                     });
                     prompt("CTRL+A CTRL+C", "summon command_block_minecart ~ ~1 ~ " + JSON.stringify(obj));
-                }));
+                });
             }
         </script>
     </body>
