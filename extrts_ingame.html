@@ -231,32 +231,6 @@
             var players = [];
             var category = "buildings";
 
-            class Unit
-            {
-                tick()
-                {
-                    if (targetx && targety)
-                    {
-
-                    }
-                }
-                
-                constructor(player, id, x, y, target, targetx, targety, rotation)
-                {
-                    this.player = player;
-                    this.id = id;
-                    this.x = x;
-                    this.y = y;
-                    this.target = target;
-                    this.targetx = targetx;
-                    this.targety = targety;
-                    this.rotation = rotation % 360;
-                    this.element = document.createElement("img");
-                    this.element.className = "unit";
-                    this.element.style = "top:" + (y * 100) + "px;left:" + (x * 100) + "px;";
-                }
-            }
-
             function buildcat()
             {
                 category = "buildings";
@@ -360,12 +334,6 @@
             }
 
             var speed = Number(getqueryparam("speed"));
-
-            function tick()
-            {
-                units.forEach(unit => unit.tick());
-                setTimeout(tick, speed);
-            }
             
             var map_request = new XMLHttpRequest();
             map_request.open("GET", getqueryparam("mapurl"), false);
@@ -381,6 +349,53 @@
                                                             <rules>
                                                                 <factions></factions>
                                                             </rules>`, "application/xml");
+
+            class Player
+            {
+                constructor(bot)
+                {
+                    this.bot = bot;
+                }
+            }
+
+            class Unit
+            {
+                tick()
+                {
+                    if (target)
+                    {
+
+                    }
+                    else if (targetx && targety)
+                    {
+                        
+                    }
+                }
+                
+                constructor(player, id, x, y, target, targetx, targety, rotation)
+                {
+                    this.player = player;
+                    this.id = id;
+                    this.x = x;
+                    this.y = y;
+                    this.target = target;
+                    this.targetx = targetx;
+                    this.targety = targety;
+                    this.rotation = rotation % 360;
+                    this.element = document.createElement("img");
+                    this.element.className = "unit";
+                    this.element.style = "top:" + (y * 100) + "px;left:" + (x * 100) + "px;";
+                    this.element.src = rule_doc.querySelector("rules units unit[id=" + id + "] image src").innerHTML;
+                }
+            }
+
+            function tick()
+            {
+                buildings.forEach(building => building.tick());
+                units.forEach(unit => unit.tick());
+                setTimeout(tick, speed);
+            }
+            
             function sources()
             {
                 let ar = [];
@@ -403,6 +418,7 @@
             }
 
             var faction = rule_doc.querySelector("rules factions faction[default=yes]").getAttribute("id");
+            if (getqueryparam("faction") != "" && getqueryparam("faction") != null && getqueryparam("faction") != undefined) faction = getqueryparam("faction");
 
             var cur_map = "";
             map_doc.querySelectorAll("coordinates y").forEach(function(y, yi)
