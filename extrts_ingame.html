@@ -384,8 +384,9 @@
                     this.rotation = rotation % 360;
                     this.element = document.createElement("img");
                     this.element.className = "unit";
-                    this.element.style = "top:" + (y * 100) + "px;left:" + (x * 100) + "px;";
+                    this.element.style = "top:" + (y * 100) + "px;left:" + (x * 100) + "px;z-index:" + rule_doc.querySelector("rules units unit[id=" + id + "] image zindex").innerHTML + ";";
                     this.element.src = rule_doc.querySelector("rules units unit[id=" + id + "] image src").innerHTML;
+                    document.getElementById("world").append(this.element);
                 }
             }
 
