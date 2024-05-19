@@ -19,6 +19,11 @@
                 font-family: monospace;
                 color: white;
             }
+
+            p
+            {
+                white-space: pre-wrap;
+            }
         </style>
     </head>
     <body>
@@ -33,10 +38,6 @@
                 if (e.key.length == 1)
                 {
                     inp.innerText += (inp.innerText == ">") ? " " + e.key : e.key;
-                }
-                else if (e.code == "Space")
-                {
-                    inp.innerText += (inp.innerText == ">") ? "  " : " ";
                 }
             });
         </script>
