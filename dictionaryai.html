@@ -28,9 +28,10 @@
             let inp = document.getElementById("input");
             let out = document.getElementById("output");
             
-            document.addEventListener("keydown", e => {
-                inp.innerHtml += e.key
-            });
+            document.addEventListener("keydown", e =>
+            {
+                inp.innerText += (inp.innerText == ">") ? " " + e.key : e.key;
+            }
         </script>
     </body>
 </html>
