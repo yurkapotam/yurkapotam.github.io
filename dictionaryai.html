@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Dictionary AI</title>
+        <style>
+            body
+            {
+                background-color: black;
+            }
+            
+            #output
+            {
+                font-family: monospace;
+            }
+            
+            #input
+            {
+                font-family: monospace;
+            }
+        </style>
+    </head>
+    <body>
+        <p id="output">&lt; Input code</p>
+        <p id="input">&gt; </p>
+        <script>
+            let in = document.getElementById("input");
+            let out = document.getElementById("output");
+            
+            document.body.addEventListener("keydown", e => {
+                in.innerHtml += e.key
+            });
+        </script>
+    </body>
+</html>
