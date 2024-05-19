@@ -25,11 +25,11 @@
         <p id="output">&lt; Input code</p>
         <p id="input">&gt; </p>
         <script>
-            let in = document.getElementById("input");
+            let inp = document.getElementById("input");
             let out = document.getElementById("output");
             
             document.body.addEventListener("keydown", e => {
-                in.innerHtml += e.key
+                inp.innerHtml += e.key
             });
         </script>
     </body>
