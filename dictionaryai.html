@@ -23,7 +23,7 @@
     </head>
     <body>
         <p id="output">&lt; Input code</p>
-        <p id="input">&gt; </p>
+        <p id="input">&gt;</p>
         <script>
             let inp = document.getElementById("input");
             let out = document.getElementById("output");
@@ -31,7 +31,7 @@
             document.addEventListener("keydown", e =>
             {
                 inp.innerText += (inp.innerText == ">") ? " " + e.key : e.key;
-            }
+            });
         </script>
     </body>
 </html>
