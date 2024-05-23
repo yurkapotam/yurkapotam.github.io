@@ -1,0 +1,14 @@
+body
+{
+    display: flex;
+}
+
+page-itself
+{
+    flex: 7;
+}
+
+sidebar
+{
+    flex: 1;
+}
