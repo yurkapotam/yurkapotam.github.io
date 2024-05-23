@@ -12,3 +12,8 @@ sidebar
 {
     flex: 1;
 }
+
+sidebar a
+{
+    display: block;
+}
