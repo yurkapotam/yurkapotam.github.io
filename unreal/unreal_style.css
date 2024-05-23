@@ -3,17 +3,17 @@ body
     display: flex;
 }
 
-page-itself
+.page-itself
 {
     flex: 7;
 }
 
-sidebar
+.sidebar
 {
     flex: 1;
 }
 
-sidebar a
+.sidebar a
 {
     display: block;
 }
