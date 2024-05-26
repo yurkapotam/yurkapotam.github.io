@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Hypper > MapGen > Cube</title>
+    </head>
+    <body>
+        <div>
+            <label for="freezed">Frozen</label>
+            <input type="checkbox" name="freezed" id="freezed">
+        </div>
+        <div>
+            <label for="name">Prop name</label>
+            <input type="text" name="name" id="name">
+        </div>
+        <div>
+            <label for="xa">X starting position</label>
+            <input type="number" name="xa" id="xa">
+        </div>
+        <div>
+            <label for="ya">Y starting position</label>
+            <input type="number" name="ya" id="ya">
+        </div>
+        <div>
+            <label for="za">Z starting position</label>
+            <input type="number" name="za" id="za">
+        </div>
+        <div>
+            <label for="xb">X step</label>
+            <input type="number" name="xb" id="xb">
+        </div>
+        <div>
+            <label for="yb">Y step</label>
+            <input type="number" name="yb" id="yb">
+        </div>
+        <div>
+            <label for="zb">Z step</label>
+            <input type="number" name="zb" id="zb">
+        </div>
+        <div>
+            <label for="xc">X amount</label>
+            <input type="number" name="xc" id="xc">
+        </div>
+        <div>
+            <label for="yc">Y amount</label>
+            <input type="number" name="yc" id="yc">
+        </div>
+        <div>
+            <label for="zc">Z amount</label>
+            <input type="number" name="zc" id="zc">
+        </div>
+        <button onclick="gen();">Generate</button>
+        <script>
+            function gen()
+            {
+                let cur = {map: "FlatGrass", props: []}
+                for (let x = document.getElementById("xa").value; x <= document.getElementById("xa").value * document.getElementById("xc").value; x += document.getElementById("xb").value)
+                {
+                    for (let y = document.getElementById("ya").value; y <= document.getElementById("ya").value * document.getElementById("yc").value; y += document.getElementById("yb").value)
+                    {
+                        for (let z = document.getElementById("za").value; z <= document.getElementById("za").value * document.getElementById("zc").value; z += document.getElementById("zb").value)
+                        {
+                            cur.props.push({name: document.getElementById("name").value, uniqueId: Math.random(), position: {x: x * 1.05, y: y * 1.05, z: z * 1.05}, rotation: {x: 0, y: 0, z: 0, w: 0}, isKinematic: false, instantiationData: null, runtimeData: null});
+                        }
+                    }
+                }
+                prompt("Copy this", JSON.stringify(cur));
+            }
+        </script>
+    </body>
+</html>
