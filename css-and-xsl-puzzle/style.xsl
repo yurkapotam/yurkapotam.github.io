@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:math="http://exslt.org/math" extension-element-prefixes="math">
-<xsl:template match="/">
 <html>
 <head>
 <style>
@@ -167,7 +165,6 @@
 </g>
 </body>
 </html>
-</xsl:template>
 
 <xsl:template name="generate_style">
     <xsl:param name="x" />
@@ -192,4 +189,3 @@
     <xsl:call-template name="generate_bits"><xsl:with-param name="x" select="$x - 1"></xsl:call-template>
     </xsl:if>
 </xsl:template>
-</xsl:stylesheet>
