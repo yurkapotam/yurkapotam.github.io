@@ -59,7 +59,7 @@
                     {
                         for (let z = document.getElementById("za").value; z <= document.getElementById("za").value * document.getElementById("zc").value; z += document.getElementById("zb").value)
                         {
-                            cur.props.push({name: document.getElementById("name").value, uniqueId: Math.random(), position: {x: x * 1.05, y: y * 1.05, z: z * 1.05}, rotation: {x: 0, y: 0, z: 0, w: 0}, isKinematic: document.getElementById("freezed").value, instantiationData: null, runtimeData: null});
+                            cur.props.push({name: document.getElementById("name").value, uniqueId: Math.random(), position: {x: x, y: y, z: z}, rotation: {x: 0, y: 0, z: 0, w: 0}, isKinematic: document.getElementById("freezed").value, instantiationData: null, runtimeData: null});
                         }
                     }
                 }
