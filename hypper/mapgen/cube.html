@@ -53,13 +53,13 @@
             function gen()
             {
                 let cur = {map: "FlatGrass", props: []}
-                for (let x = document.getElementById("xa").value; x <= document.getElementById("xa").value * document.getElementById("xc").value; x += document.getElementById("xb").value)
+                for (let x = Number(document.getElementById("xa").value); x <= Number(document.getElementById("xa").value) * Number(document.getElementById("xc").value); x += Number(document.getElementById("xb").value))
                 {
-                    for (let y = document.getElementById("ya").value; y <= document.getElementById("ya").value * document.getElementById("yc").value; y += document.getElementById("yb").value)
+                    for (let y = Number(document.getElementById("ya").value); y <= Number(document.getElementById("ya").value) * Number(document.getElementById("yc").value); y += Number(document.getElementById("yb").value))
                     {
-                        for (let z = document.getElementById("za").value; z <= document.getElementById("za").value * document.getElementById("zc").value; z += document.getElementById("zb").value)
+                        for (let z = Number(document.getElementById("za").value); z <= Number(document.getElementById("za").value) * Number(document.getElementById("zc").value); z += Number(document.getElementById("zb").value))
                         {
-                            cur.props.push({name: document.getElementById("name").value, uniqueId: Math.random(), position: {x: x, y: y, z: z}, rotation: {x: 0, y: 0, z: 0, w: 0}, isKinematic: document.getElementById("freezed").value, instantiationData: null, runtimeData: null});
+                            cur.props.push({name: document.getElementById("name").value, uniqueId: Math.random(), position: {x: x, y: y, z: z}, rotation: {x: 0, y: 0, z: 0, w: 0}, isKinematic: document.getElementById("freezed").checked, instantiationData: null, runtimeData: null});
                         }
                     }
                 }
