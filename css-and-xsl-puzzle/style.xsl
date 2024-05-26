@@ -173,7 +173,7 @@
     <xsl:param name="x" />
     z:nth-of-type(<xsl:value-of select="$x" />) b
     {
-        transform: translate(calc(calc(<xsl:value-of select="puzzle/size" /> - 1) / 2 - <xsl:value-of select="($x - 1) mod puzzle/size" />) * 100%,calc(calc(<xsl:value-of select="puzzle/size" /> - 1) / 2 - <xsl:value-of select="floor(($x - 0.001) div puzzle/size)" />) * 100%) rotate(calc(<xsl:value-of select="math:random() * 180" /> * 1deg)) translate(calc(30 * 1% + calc(<xsl:value-of select="puzzle/size" /> - 1) * 100%)) rotate(calc(calc(15 - 10 - 88) * 1deg));
+        transform: translate(calc(calc(<xsl:value-of select="puzzle/size" /> - 1) / 2 - <xsl:value-of select="($x - 1) mod puzzle/size" />) * 100%,calc(calc(<xsl:value-of select="puzzle/size" /> - 1) / 2 - <xsl:value-of select="floor(($x - 0.001) div puzzle/size)" />) * 100%) rotate(calc(152 * 1deg)) translate(calc(30 * 1% + calc(<xsl:value-of select="puzzle/size" /> - 1) * 100%)) rotate(calc(calc(15 - 10 - 88) * 1deg));
     }
 
     z:nth-of-type(<xsl:value-of select="$x" />) b:before
