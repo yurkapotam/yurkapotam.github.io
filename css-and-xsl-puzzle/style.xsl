@@ -160,7 +160,7 @@
 <h1>CSS Puzzle</h1>
 <p>drag &amp; drop the piece into...<br>Well, you know how a puzzle works :)</p>
 <g>
-<xsl:attribute name="style">--i:url(<xsl:value-of select="puzzle/image">)</xsl:attribute>
+<xsl:attribute name="style">--i:url(<xsl:value-of select="puzzle/image" />)</xsl:attribute>
 <xsl:call-template name="generate_bits">
 <xsl:with-param name="x"><xsl:value-of select="puzzle/size * puzzle/size" /></xsl:with-param>
 </xsl:call-template>
@@ -181,7 +181,7 @@
         background-position: calc(calc(<xsl:value-of select="($x - 1) mod puzzle/size" /> / calc(<xsl:value-of select="puzzle/size" /> - 1)) * 100%) calc(calc(<xsl:value-of select="floor(($x - 0.001) div puzzle/size)" /> / calc(<xsl:value-of select="puzzle/size" /> - 1)) * 100%);
     }
     <xsl:if test="$x > 0">
-    <xsl:call-template name="generate_style"><xsl:with-param name="x" select="$x - 1"></xsl:call-template>
+    <xsl:call-template name="generate_style"><xsl:with-param name="x" select="$x - 1"></xsl:with-param></xsl:call-template>
     </xsl:if>
 </xsl:template>
 
@@ -189,7 +189,7 @@
     <xsl:param name="x" />
     <z><a /><b draggable="true" /></z>
     <xsl:if test="$x > 0">
-    <xsl:call-template name="generate_bits"><xsl:with-param name="x" select="$x - 1"></xsl:call-template>
+    <xsl:call-template name="generate_bits"><xsl:with-param name="x" select="$x - 1"></xsl:with-param></xsl:call-template>
     </xsl:if>
 </xsl:template>
 </xsl:stylesheet>
