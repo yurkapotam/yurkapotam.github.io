@@ -158,7 +158,7 @@
 </head>
 <body>
 <h1>CSS Puzzle</h1>
-<p>drag &amp; drop the piece into...<br>Well, you know how a puzzle works :)</p>
+<p>drag &amp; drop the piece into...<br />Well, you know how a puzzle works :)</p>
 <g>
 <xsl:attribute name="style">--i:url(<xsl:value-of select="puzzle/image" />)</xsl:attribute>
 <xsl:call-template name="generate_bits">
