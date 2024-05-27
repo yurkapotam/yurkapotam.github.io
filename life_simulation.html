@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Life Simulation</title>
+    </head>
+    <body>
+        <button onclick="upsize();">Increase size</button>
+        <button onclick="newgame();">New simulation</button>
+        <div>
+            <label for="stoponnewgen">Stop before new generation</label>
+            <input type="checkbox" name="stoponnewgen" id="stoponnewgen" />
+        </div>
+        <div>
+            <label for="paused">Paused</label>
+            <input type="checkbox" name="paused" id="paused" checked />
+        </div>
+        <div>
+            <label for="create">Add</label>
+            <input type="radio" name="editors" id="create" checked />
+        </div>
+        <div>
+            <label for="kill">Remove</label>
+            <input type="radio" name="editors" id="kill" />
+        </div>
+        <div>
+            <label for="editbrain">Edit brain</label>
+            <input type="radio" name="editors" id="editbrain" checked />
+        </div>
+        <div>
+            <label for="editmisc">Edit parameters</label>
+            <input type="radio" name="editors" id="editmisc" />
+        </div>
+        <canvas id="main" width="10" height="10">Your browser does not support the &lt;canvas&gt; element. The &lt;canvas&gt; element is required for the Life Simulation to work.</canvas>
+        <script>
+            var c = document.getElementById("main");
+            var ctx = c.getContext("2d");
+            var paused = document.getElementById("paused");
+            newgame();
+
+            class Life
+            {
+                constructor(brain)
+                {
+                    this.brain = brain;
+                }
+            }
+
+            function newgame()
+            {
+                var map = [
+                    [false, false, false, false, false, false, false, false, false, false],
+                    [false, false, false, false, false, false, false, false, false, false],
+                    [false, false, false, false, false, false, false, false, false, false],
+                    [false, false, false, false, false, false, false, false, false, false],
+                    [false, false, false, false, false, false, false, false, false, false],
+                    [false, false, false, false, false, false, false, false, false, false],
+                    [false, false, false, false, false, false, false, false, false, false],
+                    [false, false, false, false, false, false, false, false, false, false],
+                    [false, false, false, false, false, false, false, false, false, false],
+                    [false, false, false, false, false, false, false, false, false, false]
+                ];
+                if (loopid) clearInterval(loopid);
+                var loopid = setInterval((function() {
+                    if (paused.checked) return;
+                }), 100);
+            }
+        </script>
+    </body>
+</html>
