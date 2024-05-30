@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="style.xsl"?>
+<world>
+    <upgrades>
+        <multibuyable>
+            <count>100</count>
+            <hp>1</hp>
+            <cost>10</cost>
+            <name>Plank</name>
+        </multibuyable>
+        <gun>
+            <name>FN 5 7</name>
+            <dmg>2</dmg>
+            <cost>25</cost>
+        </gun>
+    </upgrades>
+    <startergun>
+        <dmg>1</dmg>
+        <name>Brother's Pistol</name>
+    </startergun>
+</world>
