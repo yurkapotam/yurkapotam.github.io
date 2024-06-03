@@ -1,6 +1,5 @@
-(Fork of inexorabletash/jsbasic)[https://www.github.com/inexorabletash/jsbasic]
-jsbasic - Applesoft BASIC in JavaScript
-=======================================
+[Fork of inexorabletash/jsbasic](https://www.github.com/inexorabletash/jsbasic)
+# jsbasic - Applesoft BASIC in JavaScript
 
 This is hosted for playing with at https://inexorabletash.github.io/jsbasic/
 
