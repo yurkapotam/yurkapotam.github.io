@@ -21,7 +21,7 @@
                 {
                     for (let z = 0; z <= 3.4 * Number(document.getElementById("ysize").value); z += 3.4)
                     {
-                        cur.props.push({instantiationData: null, runtimeData: null, isKinematic: true, name: "WallWood", uniqueId: Math.random(), position: {x: x, y: 0.62, z: z}, rotation: {x: 0, y: 0, z: 0/*, w: 0*/}});
+                        cur.props.push({instantiationData: null, runtimeData: null, isKinematic: true, name: "WallWood", uniqueId: Math.random(), position: {x: x, y: 0.62, z: z}, rotation: {x: 0, y: 0, z: 180, w: 0}});
                     }
                 }
                 console.log(cur);
