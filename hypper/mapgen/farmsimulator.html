@@ -17,9 +17,9 @@
             function gen()
             {
                 let cur = {map: "FlatGrass", props: []}
-                for (let x = 0; x <= 3.4 * Number(document.getElementById("xsize").value); x += 3.4))
+                for (let x = 0; x <= 3.4 * Number(document.getElementById("xsize").value); x += 3.4)
                 {
-                    for (let z = 0; z <= 3.4 * Number(document.getElementById("ysize").value); z += 3.4))
+                    for (let z = 0; z <= 3.4 * Number(document.getElementById("ysize").value); z += 3.4)
                     {
                         cur.props.push({instantiationData: null, runtimeData: null, isKinematic: true, name: "WallWood", uniqueId: Math.random(), position: {x: x, y: 0.66, z: z}, rotation: {x: 0, y: 180, z: 0, w: 1}});
                     }
