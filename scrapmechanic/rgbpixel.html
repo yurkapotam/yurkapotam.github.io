@@ -13,8 +13,8 @@
                 let colors = ['F5F071', 'CBF66F', '68FF88', '7EEDED', '4C6FE3', 'AE79F0', 'EE7BF0', 'F06767', 'EEAF5C', 'DF7F00', 'D02525', 'CF11D2', '7514ED', '0A3EE2', '2CE6E6', '19E753', 'A0EA00', 'E2DB13', '817C00', '577D07', '0E8031', '118787', '0F2E91', '500AA6', '720A74', '7C0000', '673B00', '472800', '560202', '520653', '35086C', '0A1D5A', '0A4444', '064023', '375000', '323000', '4A4A4A', '7F7F7F', 'EEEEEE', '222222'];
                 for (let i = 0; i < colors.length; i++)
                 {
-                    cur.push({shapeId:"9f0f56e8-2c31-4d83-996c-d00a9b296c3f", color: colors[i], pos: {x: 11, y: 0, z: 2 + i}, xaxis: 1, zaxis: -2, controller: {active: false, controllers: [{id: id + 1}], mode: 1, joints: null, id: id++}});
-                    cur.push({shapeId: "ed27f5e2-cac5-4a32-a5d9-49f116acc6af", pos: {x: 11, y: -1, z: colors.length + 3}, xaxis: 1, zaxis: 3, controller: {color: colors[i], coneAngle: 0, controllers: null, luminance: 10, joints: null, id: id++}, color: colors[i]});
+                    cur.bodies[0].childs.push({shapeId:"9f0f56e8-2c31-4d83-996c-d00a9b296c3f", color: colors[i], pos: {x: 11, y: 0, z: 2 + i}, xaxis: 1, zaxis: -2, controller: {active: false, controllers: [{id: id + 1}], mode: 1, joints: null, id: id++}});
+                    cur.bodies[0].childs.push({shapeId: "ed27f5e2-cac5-4a32-a5d9-49f116acc6af", pos: {x: 11, y: -1, z: colors.length + 3}, xaxis: 1, zaxis: 3, controller: {color: colors[i], coneAngle: 0, controllers: null, luminance: 10, joints: null, id: id++}, color: colors[i]});
                 }
                 console.log(JSON.stringify(cur));
             }
