@@ -14,7 +14,7 @@
                 for (let i = 0; i < colors.length; i++)
                 {
                     cur.bodies[0].childs.push({shapeId:"9f0f56e8-2c31-4d83-996c-d00a9b296c3f", color: colors[i], pos: {x: 11, y: 0, z: 2 + i}, xaxis: 1, zaxis: -2, controller: {active: false, controllers: [{id: id + 1}], mode: 1, joints: null, id: id++}});
-                    cur.bodies[0].childs.push({shapeId: "ed27f5e2-cac5-4a32-a5d9-49f116acc6af", pos: {x: 11, y: -1, z: colors.length + 3}, xaxis: 1, zaxis: 3, controller: {color: colors[i], coneAngle: 0, controllers: null, luminance: 10, joints: null, id: id++}, color: colors[i]});
+                    cur.bodies[0].childs.push({shapeId: "ed27f5e2-cac5-4a32-a5d9-49f116acc6af", pos: {x: 11, y: -1, z: colors.length + 2}, xaxis: 1, zaxis: 3, controller: {color: colors[i], coneAngle: 0, controllers: null, luminance: 10, joints: null, id: id++}, color: colors[i]});
                 }
                 console.log(JSON.stringify(cur));
             }
