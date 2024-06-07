@@ -1,44 +1,20 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Scrap Mechanic tools > RGB pixel</title>
+        <title>Scrap Mechanic tools > RGB sensor</title>
     </head>
     <body>
-        <div>
-            <label for="xsize">X size</label>
-            <input type="number" id="xsize" name="xsize">
-        </div>
-        <div>
-            <label for="ysize">Y size</label>
-            <input type="number" id="ysize" name="ysize">
-        </div>
-        <div>
-            <label for="range">Range</label>
-            <input type="number" id="range" name="range">
-        </div>
         <button onclick="gen();">Generate</button>
         <script>
             function gen()
             {
-                let cur = {bodies: [{childs: [{color: "222222", controller: {controllers: [], id: 43577, joints: null}, pos: {x: 14, y: 10, z: 3}, shapeId:"1e8d93a4-506b-470d-9ada-9c0a321e2db5", xaxis: -2, zaxis: -3}]}], version: 4};
-                let id = 43578;
+                let cur = {bodies: [{childs: []}], version: 4};
+                let id = 43577;
                 let colors = ['F5F071', 'CBF66F', '68FF88', '7EEDED', '4C6FE3', 'AE79F0', 'EE7BF0', 'F06767', 'EEAF5C', 'DF7F00', 'D02525', 'CF11D2', '7514ED', '0A3EE2', '2CE6E6', '19E753', 'A0EA00', 'E2DB13', '817C00', '577D07', '0E8031', '118787', '0F2E91', '500AA6', '720A74', '7C0000', '673B00', '472800', '560202', '520653', '35086C', '0A1D5A', '0A4444', '064023', '375000', '323000', '4A4A4A', '7F7F7F', 'EEEEEE', '222222'];
-                for (let x = 0; x <= Number(document.getElementById("xsize").value); x++)
+                for (let i = 0; i < colors.length; i++)
                 {
-                    for (let y = 0; y <= Number(document.getElementById("ysize").value); y++)
-                    {
-                        colors.forEach(color => {
-                            cur.bodies[0].childs.push({shapeId: "20dcd41c-0a11-4668-9b00-97f278ce21af", pos: {x: 14, y: x + 9, z: y + 2}, xaxis: 1, zaxis: -2, controller: {color: color, colorMode: true, controllers: [{id: id + 1}], buttonMode: true, audioEnabled: false, joints: null, range: Number(document.getElementById("range").value), id: id++}, color: color});
-                            cur.bodies[0].childs[0].controller.controllers.push({id: id});
-                            cur.bodies[0].childs.push({color: color, controller: {active: false, id: id++, controllers: [{id: id}, {id: id + 1}], joints: null, mode: 3}, pos: {x: 15, y: x + 9, z: y + 2}, shapeId: "9f0f56e8-2c31-4d83-996c-d00a9b296c3f", xaxis: -1, zaxis: 2});
-                            cur.bodies[0].childs[0].controller.controllers.push({id: id});
-                            cur.bodies[0].childs.push({color: color, controller: {active: false, id: id++, controllers: [{id: id + 3}], joints: null, mode: 3}, pos: {x: 15, y: x + 9, z: y + 2}, shapeId: "9f0f56e8-2c31-4d83-996c-d00a9b296c3f", xaxis: -1, zaxis: 2});
-                            cur.bodies[0].childs.push({color: color, controller: {active: false, id: id++, controllers: [{id: id}], joints: null, mode: 3}, pos: {x: 15, y: x + 9, z: y + 2}, shapeId: "9f0f56e8-2c31-4d83-996c-d00a9b296c3f", xaxis: -1, zaxis: 2});
-                            cur.bodies[0].childs.push({color: color, controller: {active: false, id: id++, controllers: [{id: id}, {id: id + 1}], joints: null, mode: 0}, pos: {x: 15, y: x + 9, z: y + 2}, shapeId: "9f0f56e8-2c31-4d83-996c-d00a9b296c3f", xaxis: -1, zaxis: 2});
-                            cur.bodies[0].childs.push({color: color, controller: {active: false, id: id++, controllers: [{id: id - 3}], joints: null, mode: 3}, pos: {x: 15, y: x + 9, z: y + 2}, shapeId: "9f0f56e8-2c31-4d83-996c-d00a9b296c3f", xaxis: -1, zaxis: 2});
-                            cur.bodies[0].childs.push({color: color, controller: {color: color, coneAngle: 0, controllers: null, id: id++, joints: null, luminance: 10}, shapeId: "ed27f5e2-cac5-4a32-a5d9-49f116acc6af", xaxis: -1, zaxis: 2});
-                        });
-                    }
+                    cur.bodies[0].childs.push({shapeId: "9f0f56e8-2c31-4d83-996c-d00a9b296c3f", color: colors[i], pos: {x: 11, y: 0, z: 2 + i}, xaxis: 1, zaxis: -2, controller: {active: false, controllers: null, mode: 1, joints: null, id: id++}});
+                    cur.bodies[0].childs.push({shapeId: "20dcd41c-0a11-4668-9b00-97f278ce21af", pos: {x: 11, y: -1, z: colors.length + 2}, xaxis: 1, zaxis: 3, controller: {color: colors[i], colorMode: true, controllers: [{id: id - 1}], range: 10, joints: null, id: id++, buttonMode: true, audioEnabled: false}, color: colors[i]});
                 }
                 console.log(JSON.stringify(cur));
             }
