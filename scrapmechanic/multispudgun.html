@@ -9,11 +9,12 @@
         <script>
             function gen()
             {
-                let cur = {bodies: [{childs: [{color: "DF7F01", controller: {active: false, controllers: null, id: 26236, joints: null, mode: 0}, pos: {x: 14, y: -8, z: 2}, shapeId: "9f0f56e8-2c31-4d83-996c-d00a9b296c3f", xaxis: -2, zaxis: -1}]}], version: 4};
+                let cur = {bodies: [{childs: [{color: "DF7F01", controller: {active: false, controllers: [], id: 26236, joints: null, mode: 0}, pos: {x: 14, y: -8, z: 2}, shapeId: "9f0f56e8-2c31-4d83-996c-d00a9b296c3f", xaxis: -2, zaxis: -1}]}], version: 4};
                 let id = 26237;
                 for (let i = 0; i < Number(document.getElementById("spudguncount").value); i++)
                 {
-                    cur.bodies[0].childs.push({color: "DF7F01", controller: {containers: null, controllers: null,id: id++, joints: null}, pos:{x: 14, y: -8, z: 2}, shapeId: "0229f59d-1ba3-446a-8f9c-df8b0f816e51", xaxis: -1, zaxis: 2});
+                    cur.bodies[0].childs[0].controller.controllers.push({id: id++});
+                    cur.bodies[0].childs.push({color: "DF7F01", controller: {containers: null, controllers: null, id: id, joints: null}, pos: {x: 14, y: -8, z: 2}, shapeId: "0229f59d-1ba3-446a-8f9c-df8b0f816e51", xaxis: -1, zaxis: 2});
                 }
                 console.log(JSON.stringify(cur));
                 prompt("Copy this (copy from console if too long)", JSON.stringify(cur));
