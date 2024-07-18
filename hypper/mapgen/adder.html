@@ -39,7 +39,7 @@
                 }
                 let id = Math.random();
                 cur.props[prev].runtimeData.connectedIds.push(id);
-                cur.props.push({name: "Lamp", uniqueId: id, position: {x: -1, y: 0.53, z: 4 + (i / 3)}, rotation: {x: 0, y: 0, z: 0, w: 1}, isKinematic: true, instantiationData: null, runtimeData: {connectedIds: []}});
+                cur.props.push({name: "Lamp", uniqueId: id, position: {x: -1, y: 0.53, z: 5 + i}, rotation: {x: 0, y: 0, z: 0, w: 1}, isKinematic: true, instantiationData: null, runtimeData: {connectedIds: []}});
                 console.log(JSON.stringify(cur));
                 prompt("Copy this (copy from console if JSON doesn't fit)", JSON.stringify(cur));
             }
