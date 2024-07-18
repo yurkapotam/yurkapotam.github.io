@@ -27,19 +27,19 @@
                     let hid = Math.random();
                     cur.props[prev].runtimeData.connectedIds.push(aid);
                     cur.props[prev].runtimeData.connectedIds.push(eid);
-                    cur.props.push({name: "LogicGate", uniqueId: aid, position: {x: -2, y: 0.53, z: 4 + i}, rotation: {x: 0, y: 0, z: 0, w: 1}, isKinematic: true, instantiationData: {Mode: "AND"}, runtimeData: {connectedIds: [cid]}});
-                    cur.props.push({name: "LogicGate", uniqueId: bid, position: {x: -2, y: 0.59, z: 4 + i}, rotation: {x: 0, y: 0, z: 0, w: 1}, isKinematic: true, instantiationData: {Mode: "AND"}, runtimeData: {connectedIds: [cid]}});
-                    cur.props.push({name: "LogicGate", uniqueId: cid, position: {x: -2, y: 0.65, z: 4 + i}, rotation: {x: 0, y: 0, z: 0, w: 1}, isKinematic: true, instantiationData: {Mode: "OR"}, runtimeData: {connectedIds: []}});
-                    cur.props.push({name: "LogicGate", uniqueId: did, position: {x: -2, y: 0.71, z: 4 + i}, rotation: {x: 0, y: 0, z: 0, w: 1}, isKinematic: true, instantiationData: {Mode: "XOR"}, runtimeData: {connectedIds: [eid, aid]}});
-                    cur.props.push({name: "LogicGate", uniqueId: eid, position: {x: -2, y: 0.77, z: 4 + i}, rotation: {x: 0, y: 0, z: 0, w: 1}, isKinematic: true, instantiationData: {Mode: "XOR"}, runtimeData: {connectedIds: [fid]}});
+                    cur.props.push({name: "LogicGate", uniqueId: aid, position: {x: -2, y: 0.53, z: 4 + (i / 3)}, rotation: {x: 0, y: 0, z: 0, w: 1}, isKinematic: true, instantiationData: {Mode: "AND"}, runtimeData: {connectedIds: [cid]}});
+                    cur.props.push({name: "LogicGate", uniqueId: bid, position: {x: -2, y: 0.59, z: 4 + (i / 3)}, rotation: {x: 0, y: 0, z: 0, w: 1}, isKinematic: true, instantiationData: {Mode: "AND"}, runtimeData: {connectedIds: [cid]}});
+                    cur.props.push({name: "LogicGate", uniqueId: cid, position: {x: -2, y: 0.65, z: 4 + (i / 3)}, rotation: {x: 0, y: 0, z: 0, w: 1}, isKinematic: true, instantiationData: {Mode: "OR"}, runtimeData: {connectedIds: []}});
+                    prev = cur.props.length - 1;
+                    cur.props.push({name: "LogicGate", uniqueId: did, position: {x: -2, y: 0.71, z: 4 + (i / 3)}, rotation: {x: 0, y: 0, z: 0, w: 1}, isKinematic: true, instantiationData: {Mode: "XOR"}, runtimeData: {connectedIds: [eid, aid]}});
+                    cur.props.push({name: "LogicGate", uniqueId: eid, position: {x: -2, y: 0.77, z: 4 + (i / 3)}, rotation: {x: 0, y: 0, z: 0, w: 1}, isKinematic: true, instantiationData: {Mode: "XOR"}, runtimeData: {connectedIds: [fid]}});
                     cur.props.push({name: "Lamp", uniqueId: fid, position: {x: -1, y: 0.53, z: 4 + i}, rotation: {x: 0, y: 0, z: 0, w: 1}, isKinematic: true, instantiationData: null, runtimeData: {connectedIds: []}});
                     cur.props.push({name: "Button", uniqueId: gid, position: {x: 0, y: 0.53, z: 4 + i}, rotation: {x: 0, y: 0, z: 0, w: 1}, isKinematic: true, instantiationData: {Toggle: true}, runtimeData: {connectedIds: [bid, did], Signal: false}});
                     cur.props.push({name: "Button", uniqueId: hid, position: {x: 1, y: 0.53, z: 4 + i}, rotation: {x: 0, y: 0, z: 0, w: 1}, isKinematic: true, instantiationData: {Toggle: true}, runtimeData: {connectedIds: [bid, did], Signal: false}});
-                    prev = cur.props.length - 6;
                 }
                 let id = Math.random();
                 cur.props[prev].runtimeData.connectedIds.push(id);
-                cur.props.push({name: "Lamp", uniqueId: id, position: {x: -1, y: 0.53, z: 4 + i}, rotation: {x: 0, y: 0, z: 0, w: 1}, isKinematic: true, instantiationData: null, runtimeData: {connectedIds: []}});
+                cur.props.push({name: "Lamp", uniqueId: id, position: {x: -1, y: 0.53, z: 4 + (i / 3)}, rotation: {x: 0, y: 0, z: 0, w: 1}, isKinematic: true, instantiationData: null, runtimeData: {connectedIds: []}});
                 console.log(JSON.stringify(cur));
                 prompt("Copy this (copy from console if JSON doesn't fit)", JSON.stringify(cur));
             }
