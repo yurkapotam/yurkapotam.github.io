@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Hypper > MapGen > Farm Simulator</title>
+    </head>
+    <body>
+        <div>
+            <label for="bits">Bits</label>
+            <input type="number" name="bits" id="bits">
+        </div>
+        <button onclick="gen();">Generate</button>
+        <script>
+            function gen()
+            {
+                let cur = {map: "FlatGrass", props: [{name: "LogicGate", uniqueId: 0.5, position: {x: -2, y: 0.53, z: 3}, rotation: {x: 0, y: 0, z: 0, w: 1}, isKinematic: true, instantiationData: {Mode: "AND"}, runtimeData: {connectedIds: []}}, {name: "LogicGate", uniqueId: 1, position: {x: -2, y: 0.59, z: 3}, rotation: {x: 0, y: 0, z: 0, w: 1}, isKinematic: true, instantiationData: {Mode: "XOR"}, runtimeData: {connectedIds: [1.5]}}, {name: "Lamp", uniqueId: 1.5, position: {x: -1, y: 0.53, z: 3}, rotation: {x: 0, y: 0, z: 0, w: 1}, isKinematic: true, instantiationData: null, runtimeData: {connectedIds: []}}, {name: "Button", uniqueId: 2, position: {x: 0, y: 0.53, z: 3}, rotation: {x: 0, y: 0, z: 0, w: 1}, isKinematic: true, instantiationData: {Toggle: true}, runtimeData: {connectedIds: [0.5, 1], Signal: false}}, {name: "Button", uniqueId: 2.5, position: {x: 0, y: 0.53, z: 3}, rotation: {x: 0, y: 0, z: 0, w: 1}, isKinematic: true, instantiationData: {Toggle: true}, runtimeData: {connectedIds: [0.5, 1], Signal: false}}]};
+                let i = 0;
+                let prev = 0;
+                for (i = 0; i < Number(document.getElementById("bits").value) - 1; i++)
+                {
+                    let aid = Math.random();
+                    let bid = Math.random();
+                    let cid = Math.random();
+                    let did = Math.random();
+                    let eid = Math.random();
+                    let fid = Math.random();
+                    let gid = Math.random();
+                    let hid = Math.random();
+                    cur.props[prev].runtimeData.connectedIds.push(aid);
+                    cur.props[prev].runtimeData.connectedIds.push(eid);
+                    cur.props.push({name: "LogicGate", uniqueId: aid, position: {x: -2, y: 0.53, z: 4 + i}, rotation: {x: 0, y: 0, z: 0, w: 1}, isKinematic: true, instantiationData: {Mode: "AND"}, runtimeData: {connectedIds: [cid]}});
+                    cur.props.push({name: "LogicGate", uniqueId: bid, position: {x: -2, y: 0.59, z: 4 + i}, rotation: {x: 0, y: 0, z: 0, w: 1}, isKinematic: true, instantiationData: {Mode: "AND"}, runtimeData: {connectedIds: [cid]}});
+                    cur.props.push({name: "LogicGate", uniqueId: cid, position: {x: -2, y: 0.65, z: 4 + i}, rotation: {x: 0, y: 0, z: 0, w: 1}, isKinematic: true, instantiationData: {Mode: "OR"}, runtimeData: {connectedIds: []}});
+                    cur.props.push({name: "LogicGate", uniqueId: did, position: {x: -2, y: 0.71, z: 4 + i}, rotation: {x: 0, y: 0, z: 0, w: 1}, isKinematic: true, instantiationData: {Mode: "XOR"}, runtimeData: {connectedIds: [eid, aid]}});
+                    cur.props.push({name: "LogicGate", uniqueId: eid, position: {x: -2, y: 0.77, z: 4 + i}, rotation: {x: 0, y: 0, z: 0, w: 1}, isKinematic: true, instantiationData: {Mode: "XOR"}, runtimeData: {connectedIds: [fid]}});
+                    cur.props.push({name: "Lamp", uniqueId: fid, position: {x: -1, y: 0.53, z: 4 + i}, rotation: {x: 0, y: 0, z: 0, w: 1}, isKinematic: true, instantiationData: null, runtimeData: {connectedIds: []}});
+                    cur.props.push({name: "Button", uniqueId: gid, position: {x: 0, y: 0.53, z: 4 + i}, rotation: {x: 0, y: 0, z: 0, w: 1}, isKinematic: true, instantiationData: {Toggle: true}, runtimeData: {connectedIds: [bid, did], Signal: false}});
+                    cur.props.push({name: "Button", uniqueId: hid, position: {x: 1, y: 0.53, z: 4 + i}, rotation: {x: 0, y: 0, z: 0, w: 1}, isKinematic: true, instantiationData: {Toggle: true}, runtimeData: {connectedIds: [bid, did], Signal: false}});
+                    prev = cur.props.length - 6;
+                }
+                let id = Math.random();
+                cur.props[prev].runtimeData.connectedIds.push(id);
+                cur.props.push({name: "Lamp", uniqueId: id, position: {x: -1, y: 0.53, z: 4 + i}, rotation: {x: 0, y: 0, z: 0, w: 1}, isKinematic: true, instantiationData: null, runtimeData: {connectedIds: []}});
+                console.log(JSON.stringify(cur));
+                prompt("Copy this (copy from console if JSON doesn't fit)", JSON.stringify(cur));
+            }
+        </script>
+    </body>
+</html>
