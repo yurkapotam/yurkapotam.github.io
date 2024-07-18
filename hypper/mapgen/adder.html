@@ -17,14 +17,14 @@
                 let prev = 0;
                 for (i = 0; i < Number(document.getElementById("bits").value) - 1; i++)
                 {
-                    let aid = Math.random();
-                    let bid = Math.random();
-                    let cid = Math.random();
-                    let did = Math.random();
-                    let eid = Math.random();
-                    let fid = Math.random();
-                    let gid = Math.random();
-                    let hid = Math.random();
+                    let aid = Math.random() * 50;
+                    let bid = Math.random() * 50;
+                    let cid = Math.random() * 50;
+                    let did = Math.random() * 50;
+                    let eid = Math.random() * 50;
+                    let fid = Math.random() * 50;
+                    let gid = Math.random() * 50;
+                    let hid = Math.random() * 50;
                     cur.props[prev].runtimeData.connectedIds.push(aid);
                     cur.props[prev].runtimeData.connectedIds.push(eid);
                     cur.props.push({name: "LogicGate", uniqueId: aid, position: {x: -2, y: 0.53, z: 4 + (i / 3)}, rotation: {x: 0, y: 0, z: 0, w: 1}, isKinematic: true, instantiationData: {Mode: "AND"}, runtimeData: {connectedIds: [cid]}});
