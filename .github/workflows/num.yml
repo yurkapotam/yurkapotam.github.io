@@ -21,7 +21,7 @@ jobs:
           do
           echo ${i}>>${AMOUNT}.txt
           done
-          nums=(*.txt)
+          nums=(*)
           cd ..
           echo -n "">nums.txt
           for num in $nums
