@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>GitHub Chatroom</title>
+    </head>
+    <body>
+        <div>
+            <textarea id="message"></textarea>
+            <button onclick="send()">Send</button>
+        </div>
+        <p id="messages"></p>
+        <script>
+            const urlParams = new URLSearchParams(window.location.search);
+            setInterval(() => {
+                fetch(`https://raw.githubusercontent.com/yurkapotam/chatroom/main/chatrooms/` + urlParams.get(`name`) + `.txt`).then(response => {
+                    response.text().then(text => {
+                        document.getElementById(`messages`).innerText = text;
+                    });
+                });
+            }, 5000);
+            function send()
+            {
+                fetch(`https://api.github.com/repos/yurkapotam/chatroom/issues/` + urlParams.get(`id`) + `/comments`, {method: `POST`, body: JSON.stringify({body: document.getElementById(`message`).value}), headers: {"Accept": "application/vnd.github+json", "Authorization": "Bearer " + document.getElementById(`token`).value, "X-GitHub-Api-Version": "2022-11-28"}});
+            }
+        </script>
+    </body>
+</html>
