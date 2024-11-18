@@ -16,7 +16,7 @@ jobs:
           git config --global user.name "${ACTOR}"
           git config --global user.email "${ACTOR}@users.noreply.github.com"
           cd num
-          echo "">${AMOUNT}.txt
+          echo -n "">${AMOUNT}.txt
           for (( i=1; i <= ${AMOUNT}; i++ ))
           do
           echo ${i}>>${AMOUNT}.txt
