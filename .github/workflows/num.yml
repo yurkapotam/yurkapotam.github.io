@@ -11,6 +11,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: |
+          echo "AMOUNT is $AMOUNT"
+          echo "ACTOR is $ACTOR"
           git config --global user.name "${ACTOR}"
           git config --global user.email "${ACTOR}@users.noreply.github.com"
           cd num
@@ -19,7 +21,7 @@ jobs:
           echo ${i}>>${AMOUNT}.txt
           done
           git add .
-          git commit -m 'user message'
+          git commit -m 'num'
           git push origin HEAD:main
         env:
           AMOUNT: ${{ inputs.amount }}
