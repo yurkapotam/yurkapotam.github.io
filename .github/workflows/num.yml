@@ -1,0 +1,25 @@
+name: num
+run-name: num
+on:
+  workflow_dispatch:
+    inputs:
+      amount:
+        required: true
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: |
+          git config --global user.name "${ACTOR}"
+          git config --global user.email "${ACTOR}@users.noreply.github.com"
+          cd num
+          for i in {1..${AMOUNT}}
+          do
+          echo ${i}>>${AMOUNT}
+          done
+          git add .
+          git commit -m 'user message'
+          git push origin HEAD:main
+        env:
+          AMOUNT: ${{ inputs.amount }}
