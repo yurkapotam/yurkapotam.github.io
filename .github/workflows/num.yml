@@ -16,7 +16,7 @@ jobs:
           cd num
           for i in {1..${AMOUNT}}
           do
-          echo ${i}>>${AMOUNT}
+          echo ${i}>>${AMOUNT}.txt
           done
           git add .
           git commit -m 'user message'
