@@ -24,7 +24,7 @@ jobs:
           nums=(*.txt)
           cd ..
           echo -n "">nums.txt
-          for num in nums
+          for num in $nums
           do
           echo ${num}>>nums.txt
           done
