@@ -9,9 +9,7 @@ jobs:
   main:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4.2.2
-        with:
-          lfs: true
+      - uses: actions/checkout@v2
       - run: |
           echo "AMOUNT is $AMOUNT"
           echo "ACTOR is $ACTOR"
