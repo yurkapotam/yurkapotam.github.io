@@ -21,6 +21,13 @@ jobs:
           do
           echo ${i}>>${AMOUNT}.txt
           done
+          nums=(*.txt)
+          cd ..
+          echo -n "">nums.txt
+          for num in nums
+          do
+          echo ${num}>>nums.txt
+          done
           git add .
           git commit -m 'num'
           git push origin HEAD:main
