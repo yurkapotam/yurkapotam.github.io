@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <div><a href="index.html">Back</a></div>
+        <script>
+            fetch("nums.txt").then(response => {
+                response.text().then(text => {
+                    let lines = text.split("\n");
+                    lines.forEach(l => document.body.innerHTML += `<div><a href="num/${l}">${l}</a></div>`);
+                });
+            });
+        </script>
+    </body>
+</html>
