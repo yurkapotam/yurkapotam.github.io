@@ -10,27 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: |
-          echo "AMOUNT is $AMOUNT"
-          echo "ACTOR is $ACTOR"
-          git config --global user.name "${ACTOR}"
-          git config --global user.email "${ACTOR}@users.noreply.github.com"
-          cd num
-          echo -n "">${AMOUNT}.txt
-          for (( i=1; i <= ${AMOUNT}; i++ ))
-          do
-          echo ${i}>>${AMOUNT}.txt
-          done
-          nums=(*)
-          cd ..
-          echo -n "">nums.txt
-          for num in $nums
-          do
-          echo ${num}>>nums.txt
-          done
-          git add .
-          git commit -m 'num'
-          git push origin HEAD:main
+      - run: ./.github/workflows/num.sh
         env:
           AMOUNT: ${{ inputs.amount }}
           ACTOR: ${{ github.actor }}
