@@ -10,6 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: permissions for num.sh
+        run: chmod +x ./num.sh
       - run: ./num.sh
         env:
           AMOUNT: ${{ inputs.amount }}
