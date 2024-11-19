@@ -1,0 +1,21 @@
+name: textrep
+run-name: textrep
+on:
+  workflow_dispatch:
+    inputs:
+      amount:
+        required: true
+      text:
+        required: true
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: permissions for textrep.sh
+        run: chmod +x ./textrep.sh
+      - run: ./textrep.sh
+        env:
+          AMOUNT: ${{ inputs.amount }}
+          TEXT: ${{ inputs.text }}
+          ACTOR: ${{ github.actor }}
