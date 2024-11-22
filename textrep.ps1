@@ -6,7 +6,7 @@ param (
 cd textrep
 $cur = ""
 1..$amount | % {
-    $cur += ${Env:${text}}
+    $cur += Get-ChildItem -Path @("Env:" + $text)
 }
 $shaobj = [System.Security.Cryptography.SHA256]::Create()
 $sha = $shaobj.ComputeHash([System.Text.Encoding]::UTF8.GetBytes($cur))
