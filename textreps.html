@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <body>
+        <a href="index.html">Back</a>
+        <script>
+            fetch("textreps.txt", {cache: "no-store"}).then(response => {
+                response.text().then(text => {
+                    let lines = text.split("\n");
+                    lines.forEach(l => document.body.innerHTML += `<div><a href="textrep/${l}">${l}</a></div>`);
+                });
+            });
+        </script>
+    </body>
+</html>
