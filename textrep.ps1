@@ -1,5 +1,5 @@
 param (
-    [long]$amount = 0
+    [long]$amount = 0,
     [string]$text = "TEXT"
 )
 
