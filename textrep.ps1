@@ -17,7 +17,7 @@ $nums = Get-ChildItem ./ -Name
 cd ..
 $cur = ""
 foreach ($i in $nums) {
-    foreach ($j in (Get-ChildItem $i + "/" -Name)) {
+    foreach ($j in (Get-ChildItem -Path ($i + "/") -Name)) {
         $cur += $i
         $cur += "/"
         $cur += $j
