@@ -11,11 +11,11 @@ $cur = ""
 $sha = [System.Text.Encoding]::UTF8.GetBytes($text)
 mkdir $amount
 $cur | Out-File -FilePath "${amount}/$([System.Convert]::ToHexString($sha)).txt"
-$nums = Get-ChildItem ./ -Name
+$nums = Get-ChildItem ./ -Name -Directory
 cd ..
 $cur = ""
 foreach ($i in $nums) {
-    foreach ($j in (Get-ChildItem -Path ("textrep/" + $i) -Name -Directory)) {
+    foreach ($j in (Get-ChildItem -Path ("textrep/" + $i) -Name)) {
         $cur += $i
         $cur += "/"
         $cur += $j
