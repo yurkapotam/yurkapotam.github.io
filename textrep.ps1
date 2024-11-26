@@ -1,16 +1,14 @@
 param (
     [long]$amount = 0,
-    [string]$text = "TEXT"
+    [string]$text
 )
 
 cd textrep
 $cur = ""
 1..$amount | % {
-    $cur += Get-ChildItem -Path @("Env:" + $text)
+    $cur += $text
 }
-$shaobj = [System.Security.Cryptography.SHA256]::Create()
-$sha = $shaobj.ComputeHash([System.Text.Encoding]::UTF8.GetBytes($cur))
-$shaobj.Dispose()
+$sha = [System.Text.Encoding]::UTF8.GetBytes($text)
 mkdir $amount
 $cur | Out-File -FilePath "${amount}/$([System.Convert]::ToHexString($sha)).txt"
 $nums = Get-ChildItem ./ -Name
