@@ -3,7 +3,7 @@ run-name: mc-to-lac
 on:
   workflow_dispatch:
     inputs:
-      saveurl:
+      savepath:
         required: true
       outpath:
         required: true
@@ -16,5 +16,5 @@ jobs:
         run: chmod +x ./mc-to-lac.sh
       - run: ./mc-to-lac.sh
         env:
-          SAVEURL: ${{ inputs.saveurl }}
+          SAVEPATH: ${{ inputs.savepath }}
           OUTPATH: ${{ inputs.outpath }}
