@@ -1,0 +1,20 @@
+name: mc-to-lac
+run-name: mc-to-lac
+on:
+  workflow_dispatch:
+    inputs:
+      saveurl:
+        required: true
+      outpath:
+        required: true
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: permissions for mc-to-lac.sh
+        run: chmod +x ./mc-to-lac.sh
+      - run: ./mc-to-lac.sh
+        env:
+          SAVEURL: ${{ inputs.saveurl }}
+          OUTPATH: ${{ inputs.outpath }}
