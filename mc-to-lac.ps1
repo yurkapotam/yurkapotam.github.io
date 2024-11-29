@@ -1,8 +1,6 @@
 enum savetype
 {
-    first
-    second
-    third
+    rd_132211
 }
 
 param (
@@ -31,7 +29,7 @@ $cur += "Roles List:<color=yellow>[TAXI]</color>,<color=#C7C>[WORKER]</color>,[B
 
 switch ($savetype)
 {
-    [savetype]::first
+    [savetype]::rd_132211
     {
         $stream = New-Object System.IO.Compression.GZipStream @([System.IO.File]::OpenRead($_savepath), [System.IO.Compression.CompressionMode]::Decompress)
         $level = New-Object byte[] $stream.Length
