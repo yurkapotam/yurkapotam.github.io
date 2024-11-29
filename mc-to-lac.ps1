@@ -44,7 +44,7 @@ switch ($savetype)
                 for ($z = 0; $z -lt 256; $z++)
                 {
                     $id = $level[65536 * $y + 256 * $z + $x]
-                    if ($id != 0) {$cur += "Block_Scalable_Editor:$($x * 2).00,$($y * 2).00,$($z * 2).00:0.00,0.00,0.00:2.00,2.00,2.00:color{1.00,1.00,1.00} material{${id},0.25}`n"}
+                    if ($id -ne 0) {$cur += "Block_Scalable_Editor:$($x * 2).00,$($y * 2).00,$($z * 2).00:0.00,0.00,0.00:2.00,2.00,2.00:color{1.00,1.00,1.00} material{${id},0.25}`n"}
                 }
             }
         }
