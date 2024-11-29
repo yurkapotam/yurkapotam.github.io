@@ -1,15 +1,8 @@
 param (
     [string]$_savepath,
-    [int]$_savetype,
+    [int]$savetype = 0,
     [string]$mapname
 )
-
-enum savetype
-{
-    rd_132211
-}
-
-$savetype = [Enum]::ToObject([savetype], $_savetype)
 
 $savepath = if ($_savepath.EndsWith("/")) {$_savepath} else {$_savepath + "/"}
 
@@ -31,7 +24,7 @@ $cur += "Roles List:<color=yellow>[TAXI]</color>,<color=#C7C>[WORKER]</color>,[B
 
 switch ($savetype)
 {
-    [savetype]::rd_132211
+    0
     {
         $stream = New-Object System.IO.Compression.GZipStream @([System.IO.File]::OpenRead($_savepath), [System.IO.Compression.CompressionMode]::Decompress)
         $level = New-Object byte[] $stream.Length
