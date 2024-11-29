@@ -37,11 +37,11 @@ switch ($savetype)
         $level = New-Object byte[] $stream.Length
         $stream.Read($level)
         $stream.Dispose()
-        for ($x = 0; $x < 256; $x++)
+        for ($x = 0; $x -lt 256; $x++)
         {
-            for ($y = 0; $y < 64; $y++)
+            for ($y = 0; $y -lt 64; $y++)
             {
-                for ($z = 0; $z < 256; $z++)
+                for ($z = 0; $z -lt 256; $z++)
                 {
                     $id = $level[65536 * $y + 256 * $z + $x]
                     if ($id != 0) {$cur += "Block_Scalable_Editor:$($x * 2).00,$($y * 2).00,$($z * 2).00:0.00,0.00,0.00:2.00,2.00,2.00:color{1.00,1.00,1.00} material{${id},0.25}`n"}
