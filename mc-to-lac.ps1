@@ -1,6 +1,6 @@
 param (
-    [string]$_savepath
-    [savetype]$savetype = [savetype]::first
+    [string]$_savepath,
+    [savetype]$savetype = [savetype]::first,
     [string]$mapname
 )
 
