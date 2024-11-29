@@ -33,7 +33,10 @@ switch ($savetype)
 {
     [savetype]::first
     {
-        $level = [System.IO.File]::ReadAllBytes($savepath)
+        $stream = New-Object System.IO.Compression.GZipStream @([System.IO.File]::OpenRead($_savepath), [System.IO.Compression.CompressionMode]::Decompress)
+        $level = New-Object byte[] $stream.Length
+        $stream.Read($level)
+        $stream.Dispose()
         for ($x = 0; $x < 256; $x++)
         {
             for ($y = 0; $y < 64; $y++)
