@@ -6,9 +6,9 @@ enum savetype
 }
 
 param (
-    [string]$_savepath = "level.dat",
-    [savetype]$savetype = [savetype]::first,
-    [string]$mapname = "level.txt"
+    [string]$_savepath,
+    [savetype]$savetype = 0,
+    [string]$mapname
 )
 
 $savepath = if ($_savepath.EndsWith("/")) {$_savepath} else {$_savepath + "/"}
