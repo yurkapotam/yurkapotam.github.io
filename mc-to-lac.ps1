@@ -1,6 +1,6 @@
 param (
     [string]$_savepath,
-    [savetype]$savetype = 0,
+    [int]$_savetype,
     [string]$mapname
 )
 
@@ -8,6 +8,8 @@ enum savetype
 {
     rd_132211
 }
+
+$savetype = [Enum]::ToObject([savetype], $_savetype)
 
 $savepath = if ($_savepath.EndsWith("/")) {$_savepath} else {$_savepath + "/"}
 
