@@ -18,3 +18,4 @@ jobs:
         env:
           SAVEPATH: ${{ inputs.savepath }}
           OUTPATH: ${{ inputs.outpath }}
+          ACTOR: ${{ github.actor }}
