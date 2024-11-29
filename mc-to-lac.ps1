@@ -27,7 +27,7 @@ switch ($savetype)
     0
     {
         $stream = New-Object System.IO.Compression.GZipStream @([System.IO.File]::OpenRead($_savepath), [System.IO.Compression.CompressionMode]::Decompress)
-        $level = New-Object byte[] $stream.Length
+        $level = [byte[]]::new($stream.Length)
         $stream.Read($level)
         $stream.Dispose()
         for ($x = 0; $x -lt 256; $x++)
