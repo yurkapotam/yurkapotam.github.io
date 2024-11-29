@@ -1,13 +1,13 @@
-enum savetype
-{
-    rd_132211
-}
-
 param (
     [string]$_savepath,
     [savetype]$savetype = 0,
     [string]$mapname
 )
+
+enum savetype
+{
+    rd_132211
+}
 
 $savepath = if ($_savepath.EndsWith("/")) {$_savepath} else {$_savepath + "/"}
 
