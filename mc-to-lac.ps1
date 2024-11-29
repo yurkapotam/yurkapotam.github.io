@@ -1,15 +1,15 @@
-param (
-    [string]$_savepath,
-    [savetype]$savetype = [savetype]::first,
-    [string]$mapname
-)
-
 enum savetype
 {
     first
     second
     third
 }
+
+param (
+    [string]$_savepath,
+    [savetype]$savetype = [savetype]::first,
+    [string]$mapname
+)
 
 $savepath = if ($_savepath.EndsWith("/")) {$_savepath} else {$_savepath + "/"}
 
