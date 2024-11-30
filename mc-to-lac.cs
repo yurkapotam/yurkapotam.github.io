@@ -8,7 +8,7 @@ public class Program
         string outpath = args[2];
         string mapname = args[3];
         
-        cur = new StringBuilder();
+        cur = new System.Text.StringBuilder();
         cur.AppendLine("Map Name:" + mapname);
         cur.AppendLine("Map Type:1");
         cur.AppendLine("Holo Sign:0.0, 0.0, 0.0*");
