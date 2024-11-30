@@ -41,7 +41,7 @@ public class Program
                         {
                             byte id = level[65536 * y + 256 * z + x];
                             if (id != 0)
-                                cur.AppendLine(string.Format("Block_Scalable_Editor:{0},{1},{2}:0,0,0:2,2,2:color{{1,1,1}} material{{{3},0.25}}", new object[] {x * 2, y * 2, z * 2, id}));
+                                cur.AppendLine(string.Format("Block_Scalable_Editor:{0},{1},{2}:0,0,0:2,2,2:color{{1,1,1}} material{{{3}.jpg,0.25}}", new object[] {x * 2, y * 2, z * 2, id}));
                         }
                     }
                 }
