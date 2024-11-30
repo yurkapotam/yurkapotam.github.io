@@ -48,7 +48,7 @@ public class Program
                 cur.AppendLine("Downloadable_Content_Material|https://yurkapotam.github.io/mc_first/1.jpg");
                 cur.AppendLine("Downloadable_Content_Material|https://yurkapotam.github.io/mc_first/2.jpg");
         
-                System.IO.File.WriteAllText(outpath, cur);
+                System.IO.File.WriteAllText(outpath, cur.ToString());
             break;
         }
     }
