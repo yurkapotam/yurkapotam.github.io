@@ -29,9 +29,10 @@ public class Program
         {
             case 0:
                 var stream = new System.IO.Compression.GZipStream(System.IO.File.OpenRead(_savepath), System.IO.Compression.CompressionMode.Decompress);
-                byte[] level = new byte[stream.Length];
-                stream.Read(level);
+                var levelstream = new System.IO.MemoryStream();
+                stream.CopyTo(levelstream);
                 stream.Dispose();
+                byte[] level = levelstream.ToArray();
                 for (int x = 0; x < 256; x++)
                 {
                     for (int y = 0; y < 64; y++)
