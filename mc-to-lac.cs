@@ -12,7 +12,7 @@ public class Program
         cur.AppendLine("Map Name:" + mapname);
         cur.AppendLine("Map Type:1");
         cur.AppendLine("Holo Sign:0.0, 0.0, 0.0*");
-        cur.AppendLine("Camera Pos:0.00, 0.00, 0.00:0.00, 0.00, 0.00");
+        cur.AppendLine("Camera Pos:0, 0, 0:0, 0, 0");
         cur.AppendLine("Max Vehicle Count: 16");
         cur.AppendLine("Fuel Consume Rate: 2");
         cur.AppendLine("Delete Idle Vehicle: -1");
@@ -41,7 +41,7 @@ public class Program
                         {
                             byte id = level[65536 * y + 256 * z + x];
                             if (id != 0)
-                                cur.AppendLine(string.Format("Block_Scalable_Editor:{0}.00,{1}.00,{2}.00:0.00,0.00,0.00:2.00,2.00,2.00:color{{1.00,1.00,1.00}} material{{{3},0.25}}", new object[] {x * 2, y * 2, z * 2, id}));
+                                cur.AppendLine(string.Format("Block_Scalable_Editor:{0},{1},{2}:0,0,0:2,2,2:color{{1,1,1}} material{{{3},0.25}}", new object[] {x * 2, y * 2, z * 2, id}));
                         }
                     }
                 }
