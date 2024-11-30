@@ -38,7 +38,7 @@ public class Program
                     {
                         for (int z = 0; z < 256; z++)
                         {
-                            id = level[65536 * y + 256 * z + x];
+                            byte id = level[65536 * y + 256 * z + x];
                             if (id != 0)
                                 cur.AppendLine(string.Format("Block_Scalable_Editor:{0}.00,{1}.00,{2}.00:0.00,0.00,0.00:2.00,2.00,2.00:color{{1.00,1.00,1.00}} material{{{3},0.25}}", new object[] {x * 2, y * 2, z * 2, id}));
                         }
