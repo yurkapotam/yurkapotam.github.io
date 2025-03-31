@@ -14,4 +14,4 @@ jobs:
       - run: |
           mkdir beyondunrealwiki
           cd beyondunrealwiki
-          curl http://wiki.beyondunreal.com/${{ inputs.path }}>
+          curl http://wiki.beyondunreal.com/${{ inputs.path }}>${{ inputs.path }}
