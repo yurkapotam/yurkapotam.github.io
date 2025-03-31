@@ -12,4 +12,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          pwd
+          mkdir beyondunrealwiki
+          cd beyondunrealwiki
+          curl http://wiki.beyondunreal.com/${{ inputs.path }}>
