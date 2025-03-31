@@ -1,3 +1,5 @@
+name: beyondunreal wiki copy manual
+run-name: beyondunreal wiki copy manual
 on:
   workflow_dispatch:
     inputs:
