@@ -1,0 +1,13 @@
+on:
+  workflow_dispatch:
+    inputs:
+      path:
+        required: true
+        type: string
+
+jobs:
+  greet:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          pwd
